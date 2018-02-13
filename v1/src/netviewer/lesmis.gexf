@@ -1,0 +1,1796 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gexf xmlns="http://www.gexf.net/1.2draft" version="1.2" xmlns:viz="http://www.gexf.net/1.2draft/viz" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd">
+  <meta lastmodifieddate="2016-04-28">
+    <creator>Gephi 0.8.1</creator>
+    <description></description>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static">
+    <attributes class="node" mode="static">
+      <attribute id="degree" title="Degree" type="integer">
+        <default>0</default>
+      </attribute>
+      <attribute id="weighted degree" title="Weighted Degree" type="double">
+        <default>0.0</default>
+      </attribute>
+      <attribute id="modularity_class" title="Modularity Class" type="integer">
+        <default>0</default>
+      </attribute>
+      <attribute id="componentnumber" title="Component ID" type="integer">
+        <default>0</default>
+      </attribute>
+      <attribute id="clustering" title="Clustering Coefficient" type="double">
+        <default>0.0</default>
+      </attribute>
+      <attribute id="Triangles" title="Number of triangles" type="integer">
+        <default>0</default>
+      </attribute>
+    </attributes>
+    <nodes>
+      <node id="0" label="0">
+        <attvalues>
+          <attvalue for="degree" value="10"></attvalue>
+          <attvalue for="weighted degree" value="10.0"></attvalue>
+          <attvalue for="modularity_class" value="0"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.06666666666666667"></attvalue>
+          <attvalue for="Triangles" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="14.000001"></viz:size>
+        <viz:position x="-323.19705" y="346.76294" z="0.0"></viz:position>
+        <viz:color r="87" g="87" b="220"></viz:color>
+      </node>
+      <node id="1" label="1">
+        <attvalues>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="weighted degree" value="1.0"></attvalue>
+          <attvalue for="modularity_class" value="0"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.0"></attvalue>
+          <attvalue for="Triangles" value="0"></attvalue>
+        </attvalues>
+        <viz:size value="5.0"></viz:size>
+        <viz:position x="-322.30112" y="508.851" z="0.0"></viz:position>
+        <viz:color r="87" g="87" b="220"></viz:color>
+      </node>
+      <node id="2" label="2">
+        <attvalues>
+          <attvalue for="degree" value="3"></attvalue>
+          <attvalue for="weighted degree" value="3.0"></attvalue>
+          <attvalue for="modularity_class" value="0"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="1.0"></attvalue>
+          <attvalue for="Triangles" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="7.0"></viz:size>
+        <viz:position x="-242.37726" y="239.91081" z="0.0"></viz:position>
+        <viz:color r="87" g="87" b="220"></viz:color>
+      </node>
+      <node id="3" label="3">
+        <attvalues>
+          <attvalue for="degree" value="3"></attvalue>
+          <attvalue for="weighted degree" value="3.0"></attvalue>
+          <attvalue for="modularity_class" value="0"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="1.0"></attvalue>
+          <attvalue for="Triangles" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="7.0"></viz:size>
+        <viz:position x="-218.28227" y="254.19489" z="0.0"></viz:position>
+        <viz:color r="87" g="87" b="220"></viz:color>
+      </node>
+      <node id="4" label="4">
+        <attvalues>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="weighted degree" value="1.0"></attvalue>
+          <attvalue for="modularity_class" value="0"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.0"></attvalue>
+          <attvalue for="Triangles" value="0"></attvalue>
+        </attvalues>
+        <viz:size value="5.0"></viz:size>
+        <viz:position x="-420.52957" y="497.65726" z="0.0"></viz:position>
+        <viz:color r="87" g="87" b="220"></viz:color>
+      </node>
+      <node id="5" label="5">
+        <attvalues>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="weighted degree" value="1.0"></attvalue>
+          <attvalue for="modularity_class" value="0"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.0"></attvalue>
+          <attvalue for="Triangles" value="0"></attvalue>
+        </attvalues>
+        <viz:size value="5.0"></viz:size>
+        <viz:position x="-456.66132" y="460.29718" z="0.0"></viz:position>
+        <viz:color r="87" g="87" b="220"></viz:color>
+      </node>
+      <node id="6" label="6">
+        <attvalues>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="weighted degree" value="1.0"></attvalue>
+          <attvalue for="modularity_class" value="0"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.0"></attvalue>
+          <attvalue for="Triangles" value="0"></attvalue>
+        </attvalues>
+        <viz:size value="5.0"></viz:size>
+        <viz:position x="-464.51318" y="424.0167" z="0.0"></viz:position>
+        <viz:color r="87" g="87" b="220"></viz:color>
+      </node>
+      <node id="7" label="7">
+        <attvalues>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="weighted degree" value="1.0"></attvalue>
+          <attvalue for="modularity_class" value="0"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.0"></attvalue>
+          <attvalue for="Triangles" value="0"></attvalue>
+        </attvalues>
+        <viz:size value="5.0"></viz:size>
+        <viz:position x="-374.15567" y="516.6958" z="0.0"></viz:position>
+        <viz:color r="87" g="87" b="220"></viz:color>
+      </node>
+      <node id="8" label="8">
+        <attvalues>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="weighted degree" value="1.0"></attvalue>
+          <attvalue for="modularity_class" value="0"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.0"></attvalue>
+          <attvalue for="Triangles" value="0"></attvalue>
+        </attvalues>
+        <viz:size value="5.0"></viz:size>
+        <viz:position x="-478.2198" y="383.8986" z="0.0"></viz:position>
+        <viz:color r="87" g="87" b="220"></viz:color>
+      </node>
+      <node id="9" label="9">
+        <attvalues>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="weighted degree" value="1.0"></attvalue>
+          <attvalue for="modularity_class" value="0"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.0"></attvalue>
+          <attvalue for="Triangles" value="0"></attvalue>
+        </attvalues>
+        <viz:size value="5.0"></viz:size>
+        <viz:position x="-390.56042" y="457.65646" z="0.0"></viz:position>
+        <viz:color r="87" g="87" b="220"></viz:color>
+      </node>
+      <node id="11" label="11">
+        <attvalues>
+          <attvalue for="degree" value="36"></attvalue>
+          <attvalue for="weighted degree" value="36.0"></attvalue>
+          <attvalue for="modularity_class" value="0"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.12063492063492064"></attvalue>
+          <attvalue for="Triangles" value="76"></attvalue>
+        </attvalues>
+        <viz:size value="40.0"></viz:size>
+        <viz:position x="-98.005775" y="53.3806" z="0.0"></viz:position>
+        <viz:color r="87" g="87" b="220"></viz:color>
+      </node>
+      <node id="10" label="10">
+        <attvalues>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="weighted degree" value="1.0"></attvalue>
+          <attvalue for="modularity_class" value="0"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.0"></attvalue>
+          <attvalue for="Triangles" value="0"></attvalue>
+        </attvalues>
+        <viz:size value="5.0"></viz:size>
+        <viz:position x="-123.84825" y="236.59035" z="0.0"></viz:position>
+        <viz:color r="87" g="87" b="220"></viz:color>
+      </node>
+      <node id="12" label="12">
+        <attvalues>
+          <attvalue for="degree" value="2"></attvalue>
+          <attvalue for="weighted degree" value="2.0"></attvalue>
+          <attvalue for="modularity_class" value="0"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="1.0"></attvalue>
+          <attvalue for="Triangles" value="1"></attvalue>
+        </attvalues>
+        <viz:size value="6.0"></viz:size>
+        <viz:position x="-25.172733" y="208.65977" z="0.0"></viz:position>
+        <viz:color r="87" g="87" b="220"></viz:color>
+      </node>
+      <node id="13" label="13">
+        <attvalues>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="weighted degree" value="1.0"></attvalue>
+          <attvalue for="modularity_class" value="0"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.0"></attvalue>
+          <attvalue for="Triangles" value="0"></attvalue>
+        </attvalues>
+        <viz:size value="5.0"></viz:size>
+        <viz:position x="-255.43636" y="18.634808" z="0.0"></viz:position>
+        <viz:color r="87" g="87" b="220"></viz:color>
+      </node>
+      <node id="14" label="14">
+        <attvalues>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="weighted degree" value="1.0"></attvalue>
+          <attvalue for="modularity_class" value="0"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.0"></attvalue>
+          <attvalue for="Triangles" value="0"></attvalue>
+        </attvalues>
+        <viz:size value="5.0"></viz:size>
+        <viz:position x="-281.06906" y="62.50723" z="0.0"></viz:position>
+        <viz:color r="87" g="87" b="220"></viz:color>
+      </node>
+      <node id="15" label="15">
+        <attvalues>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="weighted degree" value="1.0"></attvalue>
+          <attvalue for="modularity_class" value="0"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.0"></attvalue>
+          <attvalue for="Triangles" value="0"></attvalue>
+        </attvalues>
+        <viz:size value="5.0"></viz:size>
+        <viz:position x="-302.4713" y="28.499327" z="0.0"></viz:position>
+        <viz:color r="87" g="87" b="220"></viz:color>
+      </node>
+      <node id="23" label="23">
+        <attvalues>
+          <attvalue for="degree" value="15"></attvalue>
+          <attvalue for="weighted degree" value="15.0"></attvalue>
+          <attvalue for="modularity_class" value="5"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.3142857142857143"></attvalue>
+          <attvalue for="Triangles" value="33"></attvalue>
+        </attvalues>
+        <viz:size value="19.0"></viz:size>
+        <viz:position x="78.7279" y="153.97614" z="0.0"></viz:position>
+        <viz:color r="87" g="220" b="87"></viz:color>
+      </node>
+      <node id="24" label="24">
+        <attvalues>
+          <attvalue for="degree" value="11"></attvalue>
+          <attvalue for="weighted degree" value="11.0"></attvalue>
+          <attvalue for="modularity_class" value="4"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.4909090909090909"></attvalue>
+          <attvalue for="Triangles" value="27"></attvalue>
+        </attvalues>
+        <viz:size value="15.0"></viz:size>
+        <viz:position x="2.4655638" y="-8.14155" z="0.0"></viz:position>
+        <viz:color r="220" g="87" b="87"></viz:color>
+      </node>
+      <node id="25" label="25">
+        <attvalues>
+          <attvalue for="degree" value="16"></attvalue>
+          <attvalue for="weighted degree" value="16.0"></attvalue>
+          <attvalue for="modularity_class" value="4"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.4083333333333333"></attvalue>
+          <attvalue for="Triangles" value="49"></attvalue>
+        </attvalues>
+        <viz:size value="20.0"></viz:size>
+        <viz:position x="21.870384" y="-37.18864" z="0.0"></viz:position>
+        <viz:color r="220" g="87" b="87"></viz:color>
+      </node>
+      <node id="26" label="26">
+        <attvalues>
+          <attvalue for="degree" value="11"></attvalue>
+          <attvalue for="weighted degree" value="11.0"></attvalue>
+          <attvalue for="modularity_class" value="3"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.38181818181818183"></attvalue>
+          <attvalue for="Triangles" value="21"></attvalue>
+        </attvalues>
+        <viz:size value="15.0"></viz:size>
+        <viz:position x="55.764153" y="41.994965" z="0.0"></viz:position>
+        <viz:color r="220" g="220" b="87"></viz:color>
+      </node>
+      <node id="27" label="27">
+        <attvalues>
+          <attvalue for="degree" value="17"></attvalue>
+          <attvalue for="weighted degree" value="17.0"></attvalue>
+          <attvalue for="modularity_class" value="4"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.3235294117647059"></attvalue>
+          <attvalue for="Triangles" value="44"></attvalue>
+        </attvalues>
+        <viz:size value="21.0"></viz:size>
+        <viz:position x="-43.714348" y="2.1171746" z="0.0"></viz:position>
+        <viz:color r="220" g="87" b="87"></viz:color>
+      </node>
+      <node id="28" label="28">
+        <attvalues>
+          <attvalue for="degree" value="4"></attvalue>
+          <attvalue for="weighted degree" value="4.0"></attvalue>
+          <attvalue for="modularity_class" value="0"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.3333333333333333"></attvalue>
+          <attvalue for="Triangles" value="2"></attvalue>
+        </attvalues>
+        <viz:size value="8.0"></viz:size>
+        <viz:position x="-223.85603" y="-62.951523" z="0.0"></viz:position>
+        <viz:color r="87" g="87" b="220"></viz:color>
+      </node>
+      <node id="29" label="29">
+        <attvalues>
+          <attvalue for="degree" value="8"></attvalue>
+          <attvalue for="weighted degree" value="8.0"></attvalue>
+          <attvalue for="modularity_class" value="1"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.6428571428571429"></attvalue>
+          <attvalue for="Triangles" value="18"></attvalue>
+        </attvalues>
+        <viz:size value="12.0"></viz:size>
+        <viz:position x="-106.635056" y="137.67532" z="0.0"></viz:position>
+        <viz:color r="220" g="87" b="220"></viz:color>
+      </node>
+      <node id="31" label="31">
+        <attvalues>
+          <attvalue for="degree" value="4"></attvalue>
+          <attvalue for="weighted degree" value="4.0"></attvalue>
+          <attvalue for="modularity_class" value="5"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.6666666666666666"></attvalue>
+          <attvalue for="Triangles" value="4"></attvalue>
+        </attvalues>
+        <viz:size value="8.0"></viz:size>
+        <viz:position x="-4.5916443" y="164.6765" z="0.0"></viz:position>
+        <viz:color r="87" g="220" b="87"></viz:color>
+      </node>
+      <node id="32" label="32">
+        <attvalues>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="weighted degree" value="1.0"></attvalue>
+          <attvalue for="modularity_class" value="0"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.0"></attvalue>
+          <attvalue for="Triangles" value="0"></attvalue>
+        </attvalues>
+        <viz:size value="5.0"></viz:size>
+        <viz:position x="-285.54993" y="109.516815" z="0.0"></viz:position>
+        <viz:color r="87" g="87" b="220"></viz:color>
+      </node>
+      <node id="33" label="33">
+        <attvalues>
+          <attvalue for="degree" value="2"></attvalue>
+          <attvalue for="weighted degree" value="2.0"></attvalue>
+          <attvalue for="modularity_class" value="0"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="1.0"></attvalue>
+          <attvalue for="Triangles" value="1"></attvalue>
+        </attvalues>
+        <viz:size value="6.0"></viz:size>
+        <viz:position x="-123.68793" y="83.37459" z="0.0"></viz:position>
+        <viz:color r="87" g="87" b="220"></viz:color>
+      </node>
+      <node id="34" label="34">
+        <attvalues>
+          <attvalue for="degree" value="6"></attvalue>
+          <attvalue for="weighted degree" value="6.0"></attvalue>
+          <attvalue for="modularity_class" value="1"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="1.0"></attvalue>
+          <attvalue for="Triangles" value="15"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-168.59518" y="180.86581" z="0.0"></viz:position>
+        <viz:color r="220" g="87" b="220"></viz:color>
+      </node>
+      <node id="35" label="35">
+        <attvalues>
+          <attvalue for="degree" value="6"></attvalue>
+          <attvalue for="weighted degree" value="6.0"></attvalue>
+          <attvalue for="modularity_class" value="1"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="1.0"></attvalue>
+          <attvalue for="Triangles" value="15"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-197.37798" y="117.15257" z="0.0"></viz:position>
+        <viz:color r="220" g="87" b="220"></viz:color>
+      </node>
+      <node id="36" label="36">
+        <attvalues>
+          <attvalue for="degree" value="6"></attvalue>
+          <attvalue for="weighted degree" value="6.0"></attvalue>
+          <attvalue for="modularity_class" value="1"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="1.0"></attvalue>
+          <attvalue for="Triangles" value="15"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-217.67085" y="147.71144" z="0.0"></viz:position>
+        <viz:color r="220" g="87" b="220"></viz:color>
+      </node>
+      <node id="37" label="37">
+        <attvalues>
+          <attvalue for="degree" value="6"></attvalue>
+          <attvalue for="weighted degree" value="6.0"></attvalue>
+          <attvalue for="modularity_class" value="1"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="1.0"></attvalue>
+          <attvalue for="Triangles" value="15"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-170.6867" y="139.10759" z="0.0"></viz:position>
+        <viz:color r="220" g="87" b="220"></viz:color>
+      </node>
+      <node id="38" label="38">
+        <attvalues>
+          <attvalue for="degree" value="6"></attvalue>
+          <attvalue for="weighted degree" value="6.0"></attvalue>
+          <attvalue for="modularity_class" value="1"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="1.0"></attvalue>
+          <attvalue for="Triangles" value="15"></attvalue>
+        </attvalues>
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-199.40225" y="170.93687" z="0.0"></viz:position>
+        <viz:color r="220" g="87" b="220"></viz:color>
+      </node>
+      <node id="43" label="43">
+        <attvalues>
+          <attvalue for="degree" value="3"></attvalue>
+          <attvalue for="weighted degree" value="3.0"></attvalue>
+          <attvalue for="modularity_class" value="0"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="1.0"></attvalue>
+          <attvalue for="Triangles" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="7.0"></viz:size>
+        <viz:position x="-16.966734" y="105.054985" z="0.0"></viz:position>
+        <viz:color r="87" g="87" b="220"></viz:color>
+      </node>
+      <node id="44" label="44">
+        <attvalues>
+          <attvalue for="degree" value="2"></attvalue>
+          <attvalue for="weighted degree" value="2.0"></attvalue>
+          <attvalue for="modularity_class" value="0"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="1.0"></attvalue>
+          <attvalue for="Triangles" value="1"></attvalue>
+        </attvalues>
+        <viz:size value="6.0"></viz:size>
+        <viz:position x="-260.65515" y="-35.47984" z="0.0"></viz:position>
+        <viz:color r="87" g="87" b="220"></viz:color>
+      </node>
+      <node id="48" label="48">
+        <attvalues>
+          <attvalue for="degree" value="22"></attvalue>
+          <attvalue for="weighted degree" value="22.0"></attvalue>
+          <attvalue for="modularity_class" value="2"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.354978354978355"></attvalue>
+          <attvalue for="Triangles" value="82"></attvalue>
+        </attvalues>
+        <viz:size value="26.0"></viz:size>
+        <viz:position x="-2.8882973" y="-185.68546" z="0.0"></viz:position>
+        <viz:color r="87" g="220" b="220"></viz:color>
+      </node>
+      <node id="49" label="49">
+        <attvalues>
+          <attvalue for="degree" value="7"></attvalue>
+          <attvalue for="weighted degree" value="7.0"></attvalue>
+          <attvalue for="modularity_class" value="3"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.47619047619047616"></attvalue>
+          <attvalue for="Triangles" value="10"></attvalue>
+        </attvalues>
+        <viz:size value="11.0"></viz:size>
+        <viz:position x="78.17251" y="0.22134256" z="0.0"></viz:position>
+        <viz:color r="220" g="220" b="87"></viz:color>
+      </node>
+      <node id="51" label="51">
+        <attvalues>
+          <attvalue for="degree" value="7"></attvalue>
+          <attvalue for="weighted degree" value="7.0"></attvalue>
+          <attvalue for="modularity_class" value="3"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.42857142857142855"></attvalue>
+          <attvalue for="Triangles" value="9"></attvalue>
+        </attvalues>
+        <viz:size value="11.0"></viz:size>
+        <viz:position x="141.37697" y="22.764652" z="0.0"></viz:position>
+        <viz:color r="220" g="220" b="87"></viz:color>
+      </node>
+      <node id="55" label="55">
+        <attvalues>
+          <attvalue for="degree" value="19"></attvalue>
+          <attvalue for="weighted degree" value="19.0"></attvalue>
+          <attvalue for="modularity_class" value="3"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.3333333333333333"></attvalue>
+          <attvalue for="Triangles" value="57"></attvalue>
+        </attvalues>
+        <viz:size value="23.000002"></viz:size>
+        <viz:position x="78.28169" y="-83.33319" z="0.0"></viz:position>
+        <viz:color r="220" g="220" b="87"></viz:color>
+      </node>
+      <node id="58" label="58">
+        <attvalues>
+          <attvalue for="degree" value="15"></attvalue>
+          <attvalue for="weighted degree" value="15.0"></attvalue>
+          <attvalue for="modularity_class" value="2"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.6095238095238096"></attvalue>
+          <attvalue for="Triangles" value="64"></attvalue>
+        </attvalues>
+        <viz:size value="19.0"></viz:size>
+        <viz:position x="26.707127" y="-141.95166" z="0.0"></viz:position>
+        <viz:color r="87" g="220" b="220"></viz:color>
+      </node>
+      <node id="64" label="64">
+        <attvalues>
+          <attvalue for="degree" value="13"></attvalue>
+          <attvalue for="weighted degree" value="13.0"></attvalue>
+          <attvalue for="modularity_class" value="2"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.7692307692307693"></attvalue>
+          <attvalue for="Triangles" value="60"></attvalue>
+        </attvalues>
+        <viz:size value="17.0"></viz:size>
+        <viz:position x="37.61517" y="-164.52394" z="0.0"></viz:position>
+        <viz:color r="87" g="220" b="220"></viz:color>
+      </node>
+      <node id="68" label="68">
+        <attvalues>
+          <attvalue for="degree" value="10"></attvalue>
+          <attvalue for="weighted degree" value="10.0"></attvalue>
+          <attvalue for="modularity_class" value="4"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.8"></attvalue>
+          <attvalue for="Triangles" value="36"></attvalue>
+        </attvalues>
+        <viz:size value="14.000001"></viz:size>
+        <viz:position x="-43.827435" y="-72.80883" z="0.0"></viz:position>
+        <viz:color r="220" g="87" b="87"></viz:color>
+      </node>
+      <node id="69" label="69">
+        <attvalues>
+          <attvalue for="degree" value="10"></attvalue>
+          <attvalue for="weighted degree" value="10.0"></attvalue>
+          <attvalue for="modularity_class" value="4"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.8"></attvalue>
+          <attvalue for="Triangles" value="36"></attvalue>
+        </attvalues>
+        <viz:size value="14.000001"></viz:size>
+        <viz:position x="-65.541855" y="-66.296135" z="0.0"></viz:position>
+        <viz:color r="220" g="87" b="87"></viz:color>
+      </node>
+      <node id="70" label="70">
+        <attvalues>
+          <attvalue for="degree" value="10"></attvalue>
+          <attvalue for="weighted degree" value="10.0"></attvalue>
+          <attvalue for="modularity_class" value="4"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.7111111111111111"></attvalue>
+          <attvalue for="Triangles" value="32"></attvalue>
+        </attvalues>
+        <viz:size value="14.000001"></viz:size>
+        <viz:position x="-42.596405" y="-50.504345" z="0.0"></viz:position>
+        <viz:color r="220" g="87" b="87"></viz:color>
+      </node>
+      <node id="71" label="71">
+        <attvalues>
+          <attvalue for="degree" value="9"></attvalue>
+          <attvalue for="weighted degree" value="9.0"></attvalue>
+          <attvalue for="modularity_class" value="4"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.8333333333333334"></attvalue>
+          <attvalue for="Triangles" value="30"></attvalue>
+        </attvalues>
+        <viz:size value="13.0"></viz:size>
+        <viz:position x="-73.733696" y="-85.343124" z="0.0"></viz:position>
+        <viz:color r="220" g="87" b="87"></viz:color>
+      </node>
+      <node id="72" label="72">
+        <attvalues>
+          <attvalue for="degree" value="3"></attvalue>
+          <attvalue for="weighted degree" value="3.0"></attvalue>
+          <attvalue for="modularity_class" value="0"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="1.0"></attvalue>
+          <attvalue for="Triangles" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="7.0"></viz:size>
+        <viz:position x="-33.970592" y="80.634895" z="0.0"></viz:position>
+        <viz:color r="87" g="87" b="220"></viz:color>
+      </node>
+      <node id="16" label="16">
+        <attvalues>
+          <attvalue for="degree" value="9"></attvalue>
+          <attvalue for="weighted degree" value="9.0"></attvalue>
+          <attvalue for="modularity_class" value="5"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.6111111111111112"></attvalue>
+          <attvalue for="Triangles" value="22"></attvalue>
+        </attvalues>
+        <viz:size value="13.0"></viz:size>
+        <viz:position x="164.82596" y="141.04279" z="0.0"></viz:position>
+        <viz:color r="87" g="220" b="87"></viz:color>
+      </node>
+      <node id="17" label="17">
+        <attvalues>
+          <attvalue for="degree" value="7"></attvalue>
+          <attvalue for="weighted degree" value="7.0"></attvalue>
+          <attvalue for="modularity_class" value="5"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="1.0"></attvalue>
+          <attvalue for="Triangles" value="21"></attvalue>
+        </attvalues>
+        <viz:size value="11.0"></viz:size>
+        <viz:position x="202.99866" y="212.97702" z="0.0"></viz:position>
+        <viz:color r="87" g="220" b="87"></viz:color>
+      </node>
+      <node id="18" label="18">
+        <attvalues>
+          <attvalue for="degree" value="7"></attvalue>
+          <attvalue for="weighted degree" value="7.0"></attvalue>
+          <attvalue for="modularity_class" value="5"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="1.0"></attvalue>
+          <attvalue for="Triangles" value="21"></attvalue>
+        </attvalues>
+        <viz:size value="11.0"></viz:size>
+        <viz:position x="180.68182" y="256.9219" z="0.0"></viz:position>
+        <viz:color r="87" g="220" b="87"></viz:color>
+      </node>
+      <node id="19" label="19">
+        <attvalues>
+          <attvalue for="degree" value="7"></attvalue>
+          <attvalue for="weighted degree" value="7.0"></attvalue>
+          <attvalue for="modularity_class" value="5"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="1.0"></attvalue>
+          <attvalue for="Triangles" value="21"></attvalue>
+        </attvalues>
+        <viz:size value="11.0"></viz:size>
+        <viz:position x="231.0774" y="207.97816" z="0.0"></viz:position>
+        <viz:color r="87" g="220" b="87"></viz:color>
+      </node>
+      <node id="20" label="20">
+        <attvalues>
+          <attvalue for="degree" value="7"></attvalue>
+          <attvalue for="weighted degree" value="7.0"></attvalue>
+          <attvalue for="modularity_class" value="5"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="1.0"></attvalue>
+          <attvalue for="Triangles" value="21"></attvalue>
+        </attvalues>
+        <viz:size value="11.0"></viz:size>
+        <viz:position x="183.35095" y="236.57922" z="0.0"></viz:position>
+        <viz:color r="87" g="220" b="87"></viz:color>
+      </node>
+      <node id="21" label="21">
+        <attvalues>
+          <attvalue for="degree" value="7"></attvalue>
+          <attvalue for="weighted degree" value="7.0"></attvalue>
+          <attvalue for="modularity_class" value="5"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="1.0"></attvalue>
+          <attvalue for="Triangles" value="21"></attvalue>
+        </attvalues>
+        <viz:size value="11.0"></viz:size>
+        <viz:position x="224.1884" y="234.7591" z="0.0"></viz:position>
+        <viz:color r="87" g="220" b="87"></viz:color>
+      </node>
+      <node id="22" label="22">
+        <attvalues>
+          <attvalue for="degree" value="7"></attvalue>
+          <attvalue for="weighted degree" value="7.0"></attvalue>
+          <attvalue for="modularity_class" value="5"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="1.0"></attvalue>
+          <attvalue for="Triangles" value="21"></attvalue>
+        </attvalues>
+        <viz:size value="11.0"></viz:size>
+        <viz:position x="205.9823" y="254.9933" z="0.0"></viz:position>
+        <viz:color r="87" g="220" b="87"></viz:color>
+      </node>
+      <node id="30" label="30">
+        <attvalues>
+          <attvalue for="degree" value="2"></attvalue>
+          <attvalue for="weighted degree" value="2.0"></attvalue>
+          <attvalue for="modularity_class" value="5"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="1.0"></attvalue>
+          <attvalue for="Triangles" value="1"></attvalue>
+        </attvalues>
+        <viz:size value="6.0"></viz:size>
+        <viz:position x="60.247272" y="277.86618" z="0.0"></viz:position>
+        <viz:color r="87" g="220" b="87"></viz:color>
+      </node>
+      <node id="41" label="41">
+        <attvalues>
+          <attvalue for="degree" value="11"></attvalue>
+          <attvalue for="weighted degree" value="11.0"></attvalue>
+          <attvalue for="modularity_class" value="4"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.45454545454545453"></attvalue>
+          <attvalue for="Triangles" value="25"></attvalue>
+        </attvalues>
+        <viz:size value="15.0"></viz:size>
+        <viz:position x="5.785202" y="-113.12389" z="0.0"></viz:position>
+        <viz:color r="220" g="87" b="87"></viz:color>
+      </node>
+      <node id="42" label="42">
+        <attvalues>
+          <attvalue for="degree" value="3"></attvalue>
+          <attvalue for="weighted degree" value="3.0"></attvalue>
+          <attvalue for="modularity_class" value="4"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="1.0"></attvalue>
+          <attvalue for="Triangles" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="7.0"></viz:size>
+        <viz:position x="-34.793686" y="-119.169624" z="0.0"></viz:position>
+        <viz:color r="220" g="87" b="87"></viz:color>
+      </node>
+      <node id="50" label="50">
+        <attvalues>
+          <attvalue for="degree" value="2"></attvalue>
+          <attvalue for="weighted degree" value="2.0"></attvalue>
+          <attvalue for="modularity_class" value="3"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.0"></attvalue>
+          <attvalue for="Triangles" value="0"></attvalue>
+        </attvalues>
+        <viz:size value="6.0"></viz:size>
+        <viz:position x="151.41647" y="-35.464375" z="0.0"></viz:position>
+        <viz:color r="220" g="220" b="87"></viz:color>
+      </node>
+      <node id="75" label="75">
+        <attvalues>
+          <attvalue for="degree" value="7"></attvalue>
+          <attvalue for="weighted degree" value="7.0"></attvalue>
+          <attvalue for="modularity_class" value="4"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.9047619047619048"></attvalue>
+          <attvalue for="Triangles" value="19"></attvalue>
+        </attvalues>
+        <viz:size value="11.0"></viz:size>
+        <viz:position x="-64.273766" y="-134.50282" z="0.0"></viz:position>
+        <viz:color r="220" g="87" b="87"></viz:color>
+      </node>
+      <node id="40" label="40">
+        <attvalues>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="weighted degree" value="1.0"></attvalue>
+          <attvalue for="modularity_class" value="4"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.0"></attvalue>
+          <attvalue for="Triangles" value="0"></attvalue>
+        </attvalues>
+        <viz:size value="5.0"></viz:size>
+        <viz:position x="156.02773" y="69.00703" z="0.0"></viz:position>
+        <viz:color r="220" g="87" b="87"></viz:color>
+      </node>
+      <node id="39" label="39">
+        <attvalues>
+          <attvalue for="degree" value="3"></attvalue>
+          <attvalue for="weighted degree" value="3.0"></attvalue>
+          <attvalue for="modularity_class" value="3"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.3333333333333333"></attvalue>
+          <attvalue for="Triangles" value="1"></attvalue>
+        </attvalues>
+        <viz:size value="7.0"></viz:size>
+        <viz:position x="202.32274" y="-74.602516" z="0.0"></viz:position>
+        <viz:color r="220" g="220" b="87"></viz:color>
+      </node>
+      <node id="54" label="54">
+        <attvalues>
+          <attvalue for="degree" value="4"></attvalue>
+          <attvalue for="weighted degree" value="4.0"></attvalue>
+          <attvalue for="modularity_class" value="3"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="1.0"></attvalue>
+          <attvalue for="Triangles" value="6"></attvalue>
+        </attvalues>
+        <viz:size value="8.0"></viz:size>
+        <viz:position x="176.41818" y="-6.4181523" z="0.0"></viz:position>
+        <viz:color r="220" g="220" b="87"></viz:color>
+      </node>
+      <node id="45" label="45">
+        <attvalues>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="weighted degree" value="1.0"></attvalue>
+          <attvalue for="modularity_class" value="0"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.0"></attvalue>
+          <attvalue for="Triangles" value="0"></attvalue>
+        </attvalues>
+        <viz:size value="5.0"></viz:size>
+        <viz:position x="-374.0643" y="-146.44873" z="0.0"></viz:position>
+        <viz:color r="87" g="87" b="220"></viz:color>
+      </node>
+      <node id="52" label="52">
+        <attvalues>
+          <attvalue for="degree" value="2"></attvalue>
+          <attvalue for="weighted degree" value="2.0"></attvalue>
+          <attvalue for="modularity_class" value="3"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.0"></attvalue>
+          <attvalue for="Triangles" value="0"></attvalue>
+        </attvalues>
+        <viz:size value="6.0"></viz:size>
+        <viz:position x="295.37363" y="-39.612846" z="0.0"></viz:position>
+        <viz:color r="220" g="220" b="87"></viz:color>
+      </node>
+      <node id="57" label="57">
+        <attvalues>
+          <attvalue for="degree" value="11"></attvalue>
+          <attvalue for="weighted degree" value="11.0"></attvalue>
+          <attvalue for="modularity_class" value="2"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.6909090909090909"></attvalue>
+          <attvalue for="Triangles" value="38"></attvalue>
+        </attvalues>
+        <viz:size value="15.0"></viz:size>
+        <viz:position x="118.54959" y="-223.60625" z="0.0"></viz:position>
+        <viz:color r="87" g="220" b="220"></viz:color>
+      </node>
+      <node id="62" label="62">
+        <attvalues>
+          <attvalue for="degree" value="13"></attvalue>
+          <attvalue for="weighted degree" value="13.0"></attvalue>
+          <attvalue for="modularity_class" value="2"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.7564102564102564"></attvalue>
+          <attvalue for="Triangles" value="59"></attvalue>
+        </attvalues>
+        <viz:size value="17.0"></viz:size>
+        <viz:position x="50.147675" y="-206.8487" z="0.0"></viz:position>
+        <viz:color r="87" g="220" b="220"></viz:color>
+      </node>
+      <node id="46" label="46">
+        <attvalues>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="weighted degree" value="1.0"></attvalue>
+          <attvalue for="modularity_class" value="2"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.0"></attvalue>
+          <attvalue for="Triangles" value="0"></attvalue>
+        </attvalues>
+        <viz:size value="5.0"></viz:size>
+        <viz:position x="-35.82144" y="-587.4501" z="0.0"></viz:position>
+        <viz:color r="87" g="220" b="220"></viz:color>
+      </node>
+      <node id="47" label="47">
+        <attvalues>
+          <attvalue for="degree" value="2"></attvalue>
+          <attvalue for="weighted degree" value="2.0"></attvalue>
+          <attvalue for="modularity_class" value="2"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.0"></attvalue>
+          <attvalue for="Triangles" value="0"></attvalue>
+        </attvalues>
+        <viz:size value="6.0"></viz:size>
+        <viz:position x="-23.028614" y="-432.52277" z="0.0"></viz:position>
+        <viz:color r="87" g="220" b="220"></viz:color>
+      </node>
+      <node id="59" label="59">
+        <attvalues>
+          <attvalue for="degree" value="11"></attvalue>
+          <attvalue for="weighted degree" value="11.0"></attvalue>
+          <attvalue for="modularity_class" value="2"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.9272727272727272"></attvalue>
+          <attvalue for="Triangles" value="51"></attvalue>
+        </attvalues>
+        <viz:size value="15.0"></viz:size>
+        <viz:position x="95.36502" y="-181.98529" z="0.0"></viz:position>
+        <viz:color r="87" g="220" b="220"></viz:color>
+      </node>
+      <node id="60" label="60">
+        <attvalues>
+          <attvalue for="degree" value="9"></attvalue>
+          <attvalue for="weighted degree" value="9.0"></attvalue>
+          <attvalue for="modularity_class" value="2"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="1.0"></attvalue>
+          <attvalue for="Triangles" value="36"></attvalue>
+        </attvalues>
+        <viz:size value="13.0"></viz:size>
+        <viz:position x="38.228474" y="-250.01811" z="0.0"></viz:position>
+        <viz:color r="87" g="220" b="220"></viz:color>
+      </node>
+      <node id="61" label="61">
+        <attvalues>
+          <attvalue for="degree" value="11"></attvalue>
+          <attvalue for="weighted degree" value="11.0"></attvalue>
+          <attvalue for="modularity_class" value="2"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.9272727272727272"></attvalue>
+          <attvalue for="Triangles" value="51"></attvalue>
+        </attvalues>
+        <viz:size value="15.0"></viz:size>
+        <viz:position x="108.04174" y="-201.07462" z="0.0"></viz:position>
+        <viz:color r="87" g="220" b="220"></viz:color>
+      </node>
+      <node id="63" label="63">
+        <attvalues>
+          <attvalue for="degree" value="12"></attvalue>
+          <attvalue for="weighted degree" value="12.0"></attvalue>
+          <attvalue for="modularity_class" value="2"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.8636363636363636"></attvalue>
+          <attvalue for="Triangles" value="57"></attvalue>
+        </attvalues>
+        <viz:size value="16.0"></viz:size>
+        <viz:position x="79.44083" y="-227.41403" z="0.0"></viz:position>
+        <viz:color r="87" g="220" b="220"></viz:color>
+      </node>
+      <node id="65" label="65">
+        <attvalues>
+          <attvalue for="degree" value="12"></attvalue>
+          <attvalue for="weighted degree" value="12.0"></attvalue>
+          <attvalue for="modularity_class" value="2"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.8636363636363636"></attvalue>
+          <attvalue for="Triangles" value="57"></attvalue>
+        </attvalues>
+        <viz:size value="16.0"></viz:size>
+        <viz:position x="75.553055" y="-200.41048" z="0.0"></viz:position>
+        <viz:color r="87" g="220" b="220"></viz:color>
+      </node>
+      <node id="66" label="66">
+        <attvalues>
+          <attvalue for="degree" value="10"></attvalue>
+          <attvalue for="weighted degree" value="10.0"></attvalue>
+          <attvalue for="modularity_class" value="2"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.9333333333333333"></attvalue>
+          <attvalue for="Triangles" value="42"></attvalue>
+        </attvalues>
+        <viz:size value="14.000001"></viz:size>
+        <viz:position x="63.42726" y="-258.37683" z="0.0"></viz:position>
+        <viz:color r="87" g="220" b="220"></viz:color>
+      </node>
+      <node id="73" label="73">
+        <attvalues>
+          <attvalue for="degree" value="2"></attvalue>
+          <attvalue for="weighted degree" value="2.0"></attvalue>
+          <attvalue for="modularity_class" value="2"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="1.0"></attvalue>
+          <attvalue for="Triangles" value="1"></attvalue>
+        </attvalues>
+        <viz:size value="6.0"></viz:size>
+        <viz:position x="1.7964883" y="-373.63382" z="0.0"></viz:position>
+        <viz:color r="87" g="220" b="220"></viz:color>
+      </node>
+      <node id="74" label="74">
+        <attvalues>
+          <attvalue for="degree" value="2"></attvalue>
+          <attvalue for="weighted degree" value="2.0"></attvalue>
+          <attvalue for="modularity_class" value="2"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="1.0"></attvalue>
+          <attvalue for="Triangles" value="1"></attvalue>
+        </attvalues>
+        <viz:size value="6.0"></viz:size>
+        <viz:position x="-50.213078" y="-363.1135" z="0.0"></viz:position>
+        <viz:color r="87" g="220" b="220"></viz:color>
+      </node>
+      <node id="76" label="76">
+        <attvalues>
+          <attvalue for="degree" value="7"></attvalue>
+          <attvalue for="weighted degree" value="7.0"></attvalue>
+          <attvalue for="modularity_class" value="2"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="1.0"></attvalue>
+          <attvalue for="Triangles" value="21"></attvalue>
+        </attvalues>
+        <viz:size value="11.0"></viz:size>
+        <viz:position x="71.06197" y="-274.4256" z="0.0"></viz:position>
+        <viz:color r="87" g="220" b="220"></viz:color>
+      </node>
+      <node id="56" label="56">
+        <attvalues>
+          <attvalue for="degree" value="2"></attvalue>
+          <attvalue for="weighted degree" value="2.0"></attvalue>
+          <attvalue for="modularity_class" value="3"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="1.0"></attvalue>
+          <attvalue for="Triangles" value="1"></attvalue>
+        </attvalues>
+        <viz:size value="6.0"></viz:size>
+        <viz:position x="90.1338" y="-104.760826" z="0.0"></viz:position>
+        <viz:color r="220" g="220" b="87"></viz:color>
+      </node>
+      <node id="53" label="53">
+        <attvalues>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="weighted degree" value="1.0"></attvalue>
+          <attvalue for="modularity_class" value="3"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.0"></attvalue>
+          <attvalue for="Triangles" value="0"></attvalue>
+        </attvalues>
+        <viz:size value="5.0"></viz:size>
+        <viz:position x="329.1023" y="34.98543" z="0.0"></viz:position>
+        <viz:color r="220" g="220" b="87"></viz:color>
+      </node>
+      <node id="67" label="67">
+        <attvalues>
+          <attvalue for="degree" value="1"></attvalue>
+          <attvalue for="weighted degree" value="1.0"></attvalue>
+          <attvalue for="modularity_class" value="2"></attvalue>
+          <attvalue for="componentnumber" value="0"></attvalue>
+          <attvalue for="clustering" value="0.0"></attvalue>
+          <attvalue for="Triangles" value="0"></attvalue>
+        </attvalues>
+        <viz:size value="5.0"></viz:size>
+        <viz:position x="226.3353" y="-356.43277" z="0.0"></viz:position>
+        <viz:color r="87" g="220" b="220"></viz:color>
+      </node>
+    </nodes>
+    <edges>
+      <edge source="0" target="1">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="0" target="2">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="0" target="3">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="0" target="4">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="0" target="5">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="0" target="6">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="0" target="7">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="0" target="8">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="0" target="9">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="0" target="11">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="2" target="3">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="2" target="11">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="3" target="11">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="11" target="12">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="11" target="13">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="11" target="14">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="11" target="15">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="11" target="23">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="11" target="24">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="11" target="25">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="11" target="26">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="11" target="27">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="11" target="28">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="11" target="29">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="11" target="31">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="11" target="32">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="11" target="33">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="11" target="34">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="11" target="35">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="11" target="36">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="11" target="37">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="11" target="38">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="11" target="43">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="11" target="44">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="11" target="48">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="11" target="49">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="11" target="51">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="11" target="55">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="11" target="58">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="11" target="64">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="11" target="68">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="11" target="69">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="11" target="70">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="11" target="71">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="11" target="72">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="10" target="11">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="12" target="23">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="23" target="24">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="23" target="25">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="23" target="27">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="23" target="29">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="23" target="31">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="23" target="30">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="24" target="25">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="24" target="26">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="24" target="27">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="24" target="68">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="24" target="69">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="24" target="70">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="24" target="41">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="24" target="42">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="24" target="50">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="25" target="26">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="25" target="27">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="25" target="48">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="25" target="55">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="25" target="68">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="25" target="69">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="25" target="70">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="25" target="71">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="25" target="41">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="25" target="42">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="25" target="75">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="25" target="40">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="25" target="39">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="26" target="27">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="26" target="43">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="26" target="49">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="26" target="51">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="26" target="55">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="26" target="72">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="26" target="54">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="27" target="28">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="27" target="29">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="27" target="31">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="27" target="33">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="27" target="43">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="27" target="48">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="27" target="58">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="27" target="68">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="27" target="69">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="27" target="70">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="27" target="71">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="27" target="72">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="28" target="44">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="28" target="45">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="29" target="34">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="29" target="35">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="29" target="36">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="29" target="37">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="29" target="38">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="34" target="35">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="34" target="36">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="34" target="37">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="34" target="38">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="35" target="36">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="35" target="37">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="35" target="38">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="36" target="37">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="36" target="38">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="37" target="38">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="48" target="55">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="48" target="58">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="48" target="64">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="48" target="68">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="48" target="69">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="48" target="71">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="48" target="75">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="48" target="57">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="48" target="62">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="48" target="59">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="48" target="60">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="48" target="61">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="48" target="63">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="48" target="65">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="48" target="66">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="48" target="73">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="48" target="74">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="48" target="76">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="49" target="51">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="49" target="55">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="49" target="50">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="49" target="54">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="49" target="56">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="51" target="55">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="51" target="54">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="51" target="52">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="51" target="53">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="55" target="58">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="55" target="64">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="55" target="57">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="55" target="62">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="55" target="59">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="55" target="61">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="55" target="63">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="55" target="65">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="55" target="56">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="58" target="64">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="58" target="70">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="58" target="62">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="58" target="59">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="58" target="60">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="58" target="61">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="58" target="63">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="58" target="65">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="58" target="66">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="58" target="76">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="64" target="65">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="64" target="66">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="64" target="76">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="68" target="69">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="68" target="70">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="68" target="71">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="68" target="75">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="69" target="70">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="69" target="71">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="69" target="75">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="70" target="71">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="70" target="75">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="71" target="75">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="16" target="23">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="16" target="26">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="16" target="55">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="16" target="17">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="16" target="18">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="16" target="19">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="16" target="20">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="16" target="21">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="16" target="22">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="17" target="23">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="17" target="18">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="17" target="19">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="17" target="20">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="17" target="21">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="17" target="22">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="18" target="23">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="18" target="19">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="18" target="20">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="18" target="21">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="18" target="22">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="19" target="23">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="19" target="20">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="19" target="21">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="19" target="22">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="20" target="23">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="20" target="21">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="20" target="22">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="21" target="23">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="21" target="22">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="22" target="23">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="30" target="31">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="41" target="55">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="41" target="68">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="41" target="69">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="41" target="70">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="41" target="71">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="41" target="42">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="41" target="75">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="41" target="57">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="41" target="62">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="39" target="55">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="39" target="52">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="54" target="55">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="57" target="58">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="57" target="64">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="57" target="62">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="57" target="59">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="57" target="61">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="57" target="63">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="57" target="65">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="57" target="67">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="62" target="64">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="62" target="63">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="62" target="65">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="62" target="66">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="62" target="76">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="46" target="47">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="47" target="48">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="59" target="64">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="59" target="62">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="59" target="60">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="59" target="61">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="59" target="63">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="59" target="65">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="59" target="66">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="60" target="64">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="60" target="62">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="60" target="61">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="60" target="63">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="60" target="65">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="60" target="66">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="61" target="64">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="61" target="62">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="61" target="63">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="61" target="65">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="61" target="66">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="63" target="64">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="63" target="65">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="63" target="66">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="63" target="76">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="65" target="66">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="65" target="76">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="66" target="76">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="73" target="74">
+        <attvalues></attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>

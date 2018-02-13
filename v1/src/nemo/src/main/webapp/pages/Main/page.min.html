@@ -1,0 +1,1688 @@
+<style id="Main.css">
+
+
+</style>
+<script id="Main.js">
+Application.$controller("MainPageController", ["$scope", 'DialogService', function($scope, DialogService) {
+    "use strict";
+
+    $scope.json_result = "";
+    $scope.json_result_wf = "";
+    //End point where NEMO can download a given file.
+    $scope.download_url = 'http://localhost:8082/graphservice/download/';
+
+
+    $scope.items_in_list = 0;
+    $scope.wf_items = [];
+
+    //List of processes available. Note: currently the front end expose all the list every time a user need to add a new process. 
+    //The list has to be updated based on the previous selecton. A process input data need to be compatible with output data from the preceding process. 
+    $scope.process_items = ["Start", "Select Network Data", "Execute Network Query", "Select Query Data", "Statistical Data Analysis", "Save Variable", "Plot Data", "End"];
+    $scope.process_default = "Start";
+
+
+    //Handle event when a user clicks on graph record under "my tab". 
+    $scope.grid2Rowclick = function($event, $data) {
+
+
+        var nvalues = "";
+        for (var k in $data.node_attributes) nvalues = nvalues.concat(captilizeFirst(k).concat(" (", captilizeFirst($data.node_attributes[k]), ")"), ", ");
+
+        var evalues = " ";
+        for (var k2 in $data.edge_attributes) evalues = evalues.concat(captilizeFirst(k2).concat(" (", captilizeFirst($data.edge_attributes[k2]), ")"), ", ");
+
+
+
+        var jsonVar = {
+            name: rcaptilizeFirst($data.name),
+            directed: captilizeFirst($data.directed),
+            description: captilizeFirst($data.description),
+            nodes: $data.numberOfNodes,
+            edges: $data.numberOfEdges,
+            node_att: nvalues,
+            edge_att: evalues
+        };
+
+        // Set the variable data
+        $scope.Variables.graphName.setData(jsonVar)
+        $scope.Variables.gotoGraphDetails.navigate();
+    };
+
+
+    //Helper functions 
+    function captilizeFirst(p) {
+        return p.charAt(0).toUpperCase() + p.slice(1);
+    }
+
+    function rcaptilizeFirst(p) {
+        return p.charAt(0).toLowerCase() + p.slice(1);
+    }
+
+
+    //Handle event when a user clicks on graph record under "all tab".
+    $scope.grid4Rowclick = function($event, $data) {
+
+
+
+        var nvalues = "";
+        for (var k in $data.node_attributes) nvalues = nvalues.concat(captilizeFirst(k).concat(" (", captilizeFirst($data.node_attributes[k]), ")"), ", ");
+
+        var evalues = " ";
+        for (var k2 in $data.edge_attributes) evalues = evalues.concat(captilizeFirst(k2).concat(" (", captilizeFirst($data.edge_attributes[k2]), ")"), ", ");
+
+
+
+        var jsonVar = {
+            name: rcaptilizeFirst($data.name),
+            directed: captilizeFirst($data.directed),
+            description: captilizeFirst($data.description),
+            nodes: $data.numberOfNodes,
+            edges: $data.numberOfEdges,
+            node_att: nvalues,
+            edge_att: evalues
+        };
+
+        // Set the variable data
+        $scope.Variables.graphName.setData(jsonVar)
+        $scope.Variables.gotoGraphDetails.navigate();
+
+
+
+
+
+
+    };
+
+    $scope.tree2Select = function($event, $isolateScope, $item, $path) {
+        $scope.tree2 = $item;
+    };
+
+    //Event handler when a user clicks on "Run" button to execute a query.
+    $scope.button8Click = function($event, $isolateScope) {
+
+        var content = $scope.Widgets.query_text.datavalue;
+
+        var view;
+
+        var format;
+
+        if ($scope.Widgets.seed_mode.datavalue == 'no') {
+
+            view = 'property';
+
+        } else {
+
+            view = 'seed';
+        }
+
+        if ($scope.Widgets.result_format.datavalue == 'XML') {
+
+            format = 'True';
+
+        } else {
+
+            format = 'False';
+        }
+
+        var details;
+        if ($scope.Widgets.details.datavalue == 'Only IDs') {
+
+            details = 'False';
+
+        } else {
+
+            details = 'True';
+        }
+
+        //alert(details);
+
+        var qdata = {
+            content: content,
+            graph: $scope.Variables.graphName.getData().name,
+            validate: 'False',
+            view: view,
+            nruns: '2',
+            memo: 'False',
+            details: details,
+            session: '1',
+            csvf: format
+        };
+
+
+
+        //Call the query service  
+        $scope.Variables.GraphqueryInvoke.setInput(qdata);
+
+        $scope.Variables.GraphqueryInvoke.update();
+
+    };
+
+
+    //Code to handle the response of the query service.   
+    $scope.GraphqueryInvokeonBeforeUpdate = function(variable, data) {
+
+
+
+
+        if ($scope.Widgets.query_text.datavalue.includes('node')) {
+            if ($scope.Widgets.result_format.datavalue == 'JSON') {
+                //alert(JSON.stringify(data));
+                $scope.json_result = JSON.stringify(data.result);
+                $scope.Widgets.progress1.datavalue = parseFloat(data.result.node_sets[0].coverage);
+            } else {
+                $scope.json_result = JSON.stringify(data.result);
+                $scope.Widgets.progress1.datavalue = parseFloat($(data.result).find("coverage").text());
+
+            }
+        } else {
+            $scope.json_result = JSON.stringify(data.result.edge_sets[0]);
+            $scope.Widgets.progress1.datavalue = parseFloat(data.result.edge_sets[0].coverage);
+        }
+    };
+
+
+    //Event handler to executing a user-defined workflow.
+    $scope.executewfInvokeonBeforeUpdate = function(variable, data) {
+        $scope.Widgets.spinner2.caption = "Loading Data...";
+        var wfdata = $scope.Variables.wf_task.getData();
+        var app_path = "resources/images/plots/";
+        if (wfdata[wfdata.length - 2].Name == "Plot Data") {
+            var pp = app_path + data.datavalue + ".png";
+            var urlp = {
+                "url": pp
+            };
+
+            $scope.Variables.plot_url.setData(urlp);
+            $scope.Widgets.textarea4.show = false;
+            $scope.Widgets.plot_result.show = true;
+            $scope.Widgets.button16.show = true;
+            $scope.Widgets.button17.show = true;
+            $scope.Widgets.button17_1.show = true;
+
+
+        } else {
+
+            $scope.json_result_wf = data.datavalue;
+            $scope.Widgets.textarea4.show = true;
+            $scope.Widgets.plot_result.show = false;
+            $scope.Widgets.button16.show = false;
+            $scope.Widgets.button17.show = false;
+            $scope.Widgets.button17_1.show = false;
+        }
+
+        $scope.Widgets.spinner2.show = false;
+
+
+    };
+
+    //Reset the workflow to initial state. When user clicks on the workflow reset button.
+    $scope.button9Click = function($event, $isolateScope) {
+        $scope.Variables.wf_task.setData([]);
+        $scope.json_result_wf = "";
+        $scope.Widgets.textarea4.show = true;
+        $scope.Widgets.plot_result.show = false;
+        $scope.Widgets.button16.show = false;
+        $scope.Widgets.button17.show = false;
+        $scope.Widgets.button17_1.show = false;
+    };
+
+    //Handle the "run" workflow button.
+    $scope.button14_1Click = function($event, $isolateScope) {
+        $scope.Widgets.spinner2.caption = "Preparing Workflow...";
+        $scope.Widgets.spinner2.show = true;
+
+        var wfdata = $scope.Variables.wf_task.getData();
+
+
+        var wfd = "";
+
+        var wfp = "";
+
+        for (var i in wfdata) {
+
+            if (wfdata[i].Input !== "") {
+                wfd = wfd.concat(wfdata[i].Input).concat("|");
+            }
+
+            if (wfdata[i].Name == "Execute Network Query") {
+                wfp = wfp.concat("execute_query").concat(",");
+            } else if (wfdata[i].Name == "Select Network Data") {
+                wfp = wfp.concat("network_data").concat(",");
+            } else if (wfdata[i].Name == "Select Query Data") {
+                wfp = wfp.concat("query_data").concat(",");
+            } else if (wfdata[i].Name == "Sum") {
+                wfp = wfp.concat("sum_data").concat(",");
+            } else if (wfdata[i].Name == "Average") {
+                wfp = wfp.concat("average_data").concat(",");
+            } else if (wfdata[i].Name == "Standard Deviation") {
+                wfp = wfp.concat("std_data").concat(",");
+            } else if (wfdata[i].Name == "Variance") {
+                wfp = wfp.concat("var_data").concat(",");
+            } else if (wfdata[i].Name == "Median") {
+                wfp = wfp.concat("median_data").concat(",");
+            } else if (wfdata[i].Name == "Product") {
+                wfp = wfp.concat("product_data").concat(",");
+            } else if (wfdata[i].Name == "Min") {
+                wfp = wfp.concat("min_data").concat(",");
+            } else if (wfdata[i].Name == "Max") {
+                wfp = wfp.concat("max_data").concat(",");
+            } else if (wfdata[i].Name == "Start") {
+                wfp = wfp.concat("start").concat(",");
+            } else if (wfdata[i].Name == "End") {
+                wfp = wfp.concat("end").concat(",");
+            } else if (wfdata[i].Name == "Count") {
+                wfp = wfp.concat("count_data").concat(",");
+            } else if (wfdata[i].Name == "Plot Data") {
+                wfp = wfp.concat("plot_data").concat(",");
+            } else if (wfdata[i].Name == "Save Variable") {
+                wfp = wfp.concat("save_data").concat(",");
+            }
+
+        }
+
+        wfd = wfd.substring(0, wfd.length - 1);
+        wfp = wfp.substring(0, wfp.length - 1);
+
+
+
+
+
+
+        var qdata2 = {
+            wf: wfp,
+            input: wfd
+
+        };
+
+
+
+        $scope.Widgets.spinner2.caption = "Executing Workflow...";
+        $scope.Variables.executewfInvoke.setInput(qdata2);
+
+        $scope.Variables.executewfInvoke.update();
+    };
+
+
+    //Handle the download pdf button
+    $scope.button16Click = function($event, $isolateScope) {
+        var id = $scope.Variables.plot_url.getData().url;
+        id = id.slice(0, -3);
+        id = id.replace("resources/images/plots/", "");
+        var dlink = download_url + id + 'pdf';
+        window.location.assign(dlink);
+    };
+
+
+    //Handle the download png button
+    $scope.button17Click = function($event, $isolateScope) {
+        var id = $scope.Variables.plot_url.getData().url;
+        id = id.slice(0, -3);
+        id = id.replace("resources/images/plots/", "");
+        var dlink = download_url + id + 'png';
+        window.location.assign(dlink);
+    };
+
+    //Handle the download data button
+    $scope.button17_1Click = function($event, $isolateScope) {
+        var id = $scope.Variables.plot_url.getData().url;
+        id = id.slice(0, -3);
+        id = id.replace("resources/images/plots/", "");
+        var dlink = download_url + id + 'dat';
+        window.location.assign(dlink);
+    };
+
+
+
+}]);
+
+Application.$controller("grid2Controller", ["$scope",
+    function($scope) {
+        "use strict";
+        $scope.ctrlScope = $scope;
+    }
+]);
+
+Application.$controller("grid4Controller", ["$scope",
+    function($scope) {
+        "use strict";
+        $scope.ctrlScope = $scope;
+    }
+]);
+
+Application.$controller("grid3Controller", ["$scope",
+    function($scope) {
+        "use strict";
+        $scope.ctrlScope = $scope;
+    }
+]);
+
+Application.$controller("dialog1Controller", ["$scope", 'DialogService',
+    function($scope, DialogService) {
+        "use strict";
+        $scope.ctrlScope = $scope;
+
+
+
+
+        //Handle the event when a user select a process in the workflow builder.
+        $scope.select6Change = function($event, $isolateScope) {
+
+            if ($scope.Widgets.process_type.datavalue == 'Execute Network Query') {
+
+                $scope.Widgets.query_execute_input.show = true;
+                $scope.Widgets.network_attribute_input.show = false;
+                $scope.Widgets.query_attribute_input.show = false;
+                $scope.Widgets.stat_operation_input.show = false;
+                $scope.Widgets.plot_operation.show = false;
+                $scope.Widgets.save_variable.show = false;
+
+            } else if ($scope.Widgets.process_type.datavalue == 'Select Network Data') {
+                $scope.Widgets.query_execute_input.show = false;
+                $scope.Widgets.network_attribute_input.show = true;
+                $scope.Widgets.query_attribute_input.show = false;
+                $scope.Widgets.stat_operation_input.show = false;
+                $scope.Widgets.plot_operation.show = false;
+                $scope.Widgets.save_variable.show = false;
+
+            } else if ($scope.Widgets.process_type.datavalue == 'Select Query Data') {
+                $scope.Widgets.query_attribute_input.show = true;
+                $scope.Widgets.query_execute_input.show = false;
+                $scope.Widgets.network_attribute_input.show = false;
+                $scope.Widgets.stat_operation_input.show = false;
+                $scope.Widgets.plot_operation.show = false;
+                $scope.Widgets.save_variable.show = false;
+
+            } else if ($scope.Widgets.process_type.datavalue == 'Statistical Data Analysis') {
+                $scope.Widgets.query_attribute_input.show = false;
+                $scope.Widgets.query_execute_input.show = false;
+                $scope.Widgets.network_attribute_input.show = false;
+                $scope.Widgets.stat_operation_input.show = true;
+                $scope.Widgets.plot_operation.show = false;
+                $scope.Widgets.save_variable.show = false;
+            } else if ($scope.Widgets.process_type.datavalue == 'Save Variable') {
+                $scope.Widgets.query_attribute_input.show = false;
+                $scope.Widgets.query_execute_input.show = false;
+                $scope.Widgets.network_attribute_input.show = false;
+                $scope.Widgets.stat_operation_input.show = false;
+                $scope.Widgets.plot_operation.show = false;
+                $scope.Widgets.save_variable.show = true;
+            } else if ($scope.Widgets.process_type.datavalue == 'Plot Data') {
+                $scope.Widgets.query_attribute_input.show = false;
+                $scope.Widgets.query_execute_input.show = false;
+                $scope.Widgets.network_attribute_input.show = false;
+                $scope.Widgets.stat_operation_input.show = false;
+                $scope.Widgets.plot_operation.show = true;
+                $scope.Widgets.save_variable.show = false;
+
+            } else if (($scope.Widgets.process_type.datavalue == 'End') || ($scope.Widgets.process_type.datavalue == 'Start')) {
+
+                $scope.Widgets.query_attribute_input.show = false;
+                $scope.Widgets.query_execute_input.show = false;
+                $scope.Widgets.network_attribute_input.show = false;
+                $scope.Widgets.stat_operation_input.show = false;
+                $scope.Widgets.plot_operation.show = false;
+                $scope.Widgets.save_variable.show = false;
+            }
+
+
+
+        };
+
+        //Get node or edge attributes of a network. Send request to graph service.
+        $scope.select8Change = function($event, $isolateScope) {
+            var idata = {
+
+                network: rcaptilizeFirst($scope.Widgets.network_name.datavalue),
+                target: $scope.Widgets.target_type.datavalue,
+            };
+
+
+            scope.Variables.GetattributeInvoke.setInput(idata);
+
+            $scope.Variables.GetattributeInvoke.update();
+
+        };
+
+
+        //Handle the event when the user clicks on "add process" button.
+        $scope.button13_1Click = function($event, $isolateScope) {
+            var temp = [];
+            var nn = $scope.Widgets.network_name.caption;
+            var pt = $scope.Widgets.process_type.datavalue;
+            var wfdata = $scope.Variables.wf_task.getData();
+
+            if ($scope.Widgets.process_type.datavalue == 'Execute Network Query') {
+
+                var qi = $scope.Widgets.query_input.datavalue;
+                var tt = $scope.Widgets.target_type_q.datavalue;
+
+
+                var x = qi.concat(",").concat(nn).concat(",").concat(tt);
+
+                var rowData = {
+                    "Name": pt,
+                    "Description": "Executes a network query using NQS service",
+                    "Input": x,
+                    "Output": "NQS JSON Response"
+                };
+
+                temp.push(rowData);
+
+                $scope.wf_items = $scope.Variables.wf_task.getData().concat(temp);
+
+                $scope.Variables.wf_task.setData($scope.wf_items); /*Changes the dataSet*/
+
+
+
+                DialogService.hideDialog('dialog1');
+
+
+
+
+            } else if ($scope.Widgets.process_type.datavalue == 'Select Network Data') {
+
+                var an = $scope.Widgets.attribute_name.datavalue;
+                var tty = $scope.Widgets.target_type_q.datavalue;
+                var cond = $scope.Widgets.text14.datavalue;
+                //alert(cond);
+                var x2 = ""
+                if (cond === undefined) {
+                    x2 = an.concat(",").concat(nn).concat(",").concat(tty).concat(",").concat("no condition");
+                } else {
+                    x2 = an.concat(",").concat(nn).concat(",").concat(tty).concat(",").concat(cond);
+                }
+
+                var rowData2 = {
+                    "Name": pt,
+                    "Description": "Extracts " + an + " attribute data from network",
+                    "Input": x2,
+                    "Output": an + " data for each " + tty
+                };
+
+                temp.push(rowData2);
+
+                $scope.wf_items = $scope.Variables.wf_task.getData().concat(temp);
+
+                $scope.Variables.wf_task.setData($scope.wf_items); /*Changes the dataSet*/
+
+
+
+                DialogService.hideDialog('dialog1');
+
+
+
+
+            } else if ($scope.Widgets.process_type.datavalue == 'Select Query Data') {
+
+                var an2 = $scope.Widgets.attribute_name2.datavalue;
+
+
+                var x3 = an2
+
+                var rowData3 = {
+                    "Name": pt,
+                    "Description": "Extracts " + an2 + " attribute data from query results",
+                    "Input": x3,
+                    "Output": an2 + " data"
+                };
+
+                temp.push(rowData3);
+
+                $scope.wf_items = $scope.Variables.wf_task.getData().concat(temp);
+
+                $scope.Variables.wf_task.setData($scope.wf_items); /*Changes the dataSet*/
+
+
+
+                DialogService.hideDialog('dialog1');
+
+
+
+            } else if ($scope.Widgets.process_type.datavalue == 'Statistical Data Analysis') {
+
+                var sop = $scope.Widgets.stat_op_type.datavalue;
+
+                var rowData4 = {
+                    "Name": sop,
+                    "Description": "Calculates " + sop + " of input data",
+                    "Input": "",
+                    "Output": sop + " of data"
+                };
+
+                temp.push(rowData4);
+
+                $scope.wf_items = $scope.Variables.wf_task.getData().concat(temp);
+
+                $scope.Variables.wf_task.setData($scope.wf_items); /*Changes the dataSet*/
+
+
+
+                DialogService.hideDialog('dialog1');
+
+            } else if ($scope.Widgets.process_type.datavalue == 'Save Variable') {
+                var vn = $scope.Widgets.vname.datavalue;
+                var rowData8 = {
+                    "Name": pt,
+                    "Description": "Saves variable " + vn + " for later use",
+                    "Input": vn,
+                    "Output": ""
+                };
+
+                temp.push(rowData8);
+
+                $scope.wf_items = $scope.Variables.wf_task.getData().concat(temp);
+
+                $scope.Variables.wf_task.setData($scope.wf_items); /*Changes the dataSet*/
+
+
+
+                DialogService.hideDialog('dialog1');
+
+            } else if ($scope.Widgets.process_type.datavalue == 'Plot Data') {
+                var pty = $scope.Widgets.plot_type.datavalue;
+
+                var yl = $scope.Widgets.xlabel.datavalue;
+                var xl = $scope.Widgets.ylabel.datavalue;
+                var xf = $scope.Widgets.xfont.datavalue;
+                var tf = $scope.Widgets.tfont.datavalue;
+                var mt = $scope.Widgets.mtype.datavalue;
+                var mc = $scope.Widgets.mcolor.datavalue;
+                var ms = $scope.Widgets.msize.datavalue;
+                var pti = $scope.Widgets.ptitle.datavalue;
+                var ptc = "";
+                var pinput = "";
+                var nbn = $scope.Widgets.nbin.datavalue;
+                var var_name = $scope.Widgets.v_name.datavalue;
+                var bar_color = $scope.Widgets.text16.datavalue;
+                var ls = $scope.Widgets.lstyle.datavalue;
+                var lw = $scope.Widgets.lwidth.datavalue;
+
+                if (pty == "Clustering Coefficient Distribution") {
+
+                    ptc = '2';
+
+                    pinput = ptc.concat(",").concat(xl).concat(",").concat(yl).concat(",").concat(xf).concat(",").concat(tf).concat(",").concat(mc).concat(",").concat(mt).concat(",").concat(ms).concat(",").concat(pti).concat(",").concat(nbn).concat(',').concat(ls).concat(',').concat(lw);
+                } else if (pty == "Degree Distribution") {
+                    ptc = '1';
+                    pinput = ptc.concat(",").concat(xl).concat(",").concat(yl).concat(",").concat(xf).concat(",").concat(tf).concat(",").concat(mc).concat(",").concat(mt).concat(",").concat(ms).concat(",").concat(pti).concat(',').concat(ls).concat(',').concat(lw);
+
+                } else if (pty == "Variable(s) Value") {
+                    ptc = '3';
+                    pinput = ptc.concat(",").concat(var_name).concat(",").concat(bar_color).concat(",").concat(xl).concat(",").concat(yl).concat(",").concat(xf).concat(",").concat(tf).concat(",").concat(pti);
+
+
+                } else if (pty == "K-core Distribution") {
+                    ptc = '4';
+                }
+
+
+
+                var rowData7 = {
+                    "Name": "Plot Data",
+                    "Description": "Plot Network Data",
+                    "Input": pinput,
+                    "Output": pty + " Plot"
+
+                }
+
+
+                temp.push(rowData7);
+
+                $scope.wf_items = $scope.Variables.wf_task.getData().concat(temp);
+
+                $scope.Variables.wf_task.setData($scope.wf_items); /*Changes the dataSet*/
+
+
+
+                DialogService.hideDialog('dialog1');
+
+            } else if ($scope.Widgets.process_type.datavalue == 'Start') {
+
+                var rowData5 = {
+                    "Name": "Start",
+                    "Description": "Prepare workflow input data and start execution",
+                    "Input": "",
+                    "Output": ""
+                };
+
+                temp.push(rowData5);
+
+                $scope.wf_items = $scope.Variables.wf_task.getData().concat(temp);
+
+                $scope.Variables.wf_task.setData($scope.wf_items); /*Changes the dataSet*/
+
+
+
+                DialogService.hideDialog('dialog1');
+
+
+
+
+            } else if ($scope.Widgets.process_type.datavalue == 'End') {
+
+                var rowData6 = {
+                    "Name": "End",
+                    "Description": "Marks end of workflow execution",
+                    "Input": "",
+                    "Output": ""
+                };
+
+                temp.push(rowData6);
+
+                $scope.wf_items = $scope.Variables.wf_task.getData().concat(temp);
+
+                $scope.Variables.wf_task.setData($scope.wf_items); /*Changes the dataSet*/
+
+
+
+                DialogService.hideDialog('dialog1');
+            }
+
+
+        };
+
+
+        //Handle the event when a user changes the plot type.
+        $scope.plot_typeChange = function($event, $isolateScope) {
+            if ($scope.Widgets.plot_type.datavalue == 'Clustering Coefficient Distribution') {
+
+                $scope.Widgets.num_bins.show = true;
+                $scope.Widgets.composite35.show = true;
+                $scope.Widgets.composite35_1.show = true;
+                $scope.Widgets.composite36.show = true;
+                $scope.Widgets.vnames.show = false;
+                $scope.Widgets.bcolors.show = false;
+                $scope.Widgets.l_width.show = true;
+                $scope.Widgets.l_style.show = true;
+            } else if ($scope.Widgets.plot_type.datavalue == 'Variable(s) Value') {
+                $scope.Widgets.num_bins.show = false;
+                $scope.Widgets.composite35.show = false;
+                $scope.Widgets.composite35_1.show = false;
+                $scope.Widgets.composite36.show = false;
+                $scope.Widgets.vnames.show = true;
+                $scope.Widgets.bcolors.show = true;
+                $scope.Widgets.l_width.show = false;
+                $scope.Widgets.l_style.show = false;
+
+            } else {
+                $scope.Widgets.composite35.show = true;
+                $scope.Widgets.composite35_1.show = true;
+                $scope.Widgets.composite36.show = true;
+                $scope.Widgets.num_bins.show = false;
+                $scope.Widgets.vnames.show = false;
+                $scope.Widgets.bcolors.show = false;
+                $scope.Widgets.l_width.show = true;
+                $scope.Widgets.l_style.show = true;
+            }
+        };
+
+    }
+]);
+
+Application.$controller("iframedialog1Controller", ["$scope",
+    function($scope) {
+        "use strict";
+        $scope.ctrlScope = $scope;
+    }
+]);
+</script>
+<script id="Main.variables.json">
+var _MainPage_Variables_ ={
+	"notificationVariable1": {
+		"name": "notificationVariable1",
+		"owner": "Page",
+		"operation": "confirm",
+		"onOk": "BiSim_engineInvoke",
+		"dataBinding": {
+			"text": "bind:Widgets.grid2.selecteditem.name",
+			"okButtonText": "Ok",
+			"cancelButtonText": "Cancel"
+		},
+		"category": "wm.NotificationVariable",
+		"_id": "wm-notificationVariable1-wm.NotificationVariable-1457390764622"
+	},
+	"notificationVariable2": {
+		"name": "notificationVariable2",
+		"owner": "Page",
+		"operation": "alert",
+		"dataBinding": {
+			"text": "bind:Widgets.grid2.selecteditem.name",
+			"okButtonText": "",
+			"alerttype": ""
+		},
+		"category": "wm.NotificationVariable",
+		"_id": "wm-notificationVariable2-wm.NotificationVariable-1458941569910"
+	},
+	"graphName": {
+		"name": "graphName",
+		"type": "string",
+		"isList": false,
+		"owner": "Page",
+		"dataSet": {
+			"name": "",
+			"directed": "",
+			"description": "",
+			"nodes": "",
+			"edges": "",
+			"node_att": "",
+			"edge_att": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataSet",
+				"fields": [
+					{
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"name": "directed",
+						"type": "string"
+					},
+					{
+						"name": "description",
+						"type": "string"
+					},
+					{
+						"name": "nodes",
+						"type": "string"
+					},
+					{
+						"name": "edges",
+						"type": "string"
+					},
+					{
+						"name": "node_att",
+						"type": "string"
+					},
+					{
+						"name": "edge_att",
+						"type": "string"
+					}
+				],
+				"type": "object",
+				"isList": false
+			}
+		],
+		"saveInPhonegap": false,
+		"category": "wm.Variable",
+		"_id": "wm-graphName-staticVariable1-wm.Variable-1459046883995"
+	},
+	"example": {
+		"name": "example",
+		"type": "string",
+		"isList": true,
+		"owner": "Page",
+		"dataSet": [
+			{
+				"label": "Node",
+				"icon": "fa fa-circle-o",
+				"children": []
+			},
+			{
+				"label": "Edge",
+				"icon": "fa fa-arrows-h",
+				"children": []
+			}
+		],
+		"dataBinding": [
+			{
+				"name": "dataSet",
+				"fields": [
+					{
+						"name": "label",
+						"type": "string"
+					},
+					{
+						"name": "icon",
+						"type": "string"
+					},
+					{
+						"name": "children",
+						"type": "string"
+					}
+				],
+				"type": "object",
+				"isList": true
+			}
+		],
+		"saveInPhonegap": false,
+		"category": "wm.Variable",
+		"_id": "wm-example-wm.Variable-1459451930709"
+	},
+	"query_input": {
+		"name": "query_input",
+		"type": "string",
+		"isList": false,
+		"owner": "Page",
+		"dataSet": {
+			"content": "",
+			"graph": "",
+			"validate": "",
+			"view": "",
+			"nruns": "",
+			"memo": "",
+			"details": "",
+			"session": "",
+			"csvf": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataSet",
+				"fields": [
+					{
+						"name": "content",
+						"type": "string"
+					},
+					{
+						"name": "graph",
+						"type": "string"
+					},
+					{
+						"name": "validate",
+						"type": "string"
+					},
+					{
+						"name": "view",
+						"type": "string"
+					},
+					{
+						"name": "nruns",
+						"type": "string"
+					},
+					{
+						"name": "memo",
+						"type": "string"
+					},
+					{
+						"name": "details",
+						"type": "string"
+					},
+					{
+						"name": "session",
+						"type": "string"
+					},
+					{
+						"name": "csvf",
+						"type": "string"
+					}
+				],
+				"type": "object",
+				"isList": false
+			}
+		],
+		"saveInPhonegap": false,
+		"category": "wm.Variable",
+		"_id": "wm-query_input-wm.Variable-1459709238484"
+	},
+	"queryjsonResult": {
+		"name": "queryjsonResult",
+		"type": "string",
+		"isList": false,
+		"owner": "Page",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataSet",
+				"fields": [
+					{
+						"name": "dataValue",
+						"type": "string"
+					}
+				],
+				"type": "object",
+				"isList": false
+			}
+		],
+		"saveInPhonegap": false,
+		"category": "wm.Variable",
+		"_id": "wm-queryjsonResult-wm.Variable-1459721635861"
+	},
+	"GraphqueryInvoke": {
+		"name": "GraphqueryInvoke",
+		"type": "graphquery.RootResponse",
+		"isList": false,
+		"owner": "Page",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "object",
+				"fields": [
+					{
+						"name": "content",
+						"value": "bind:Variables.query_input.dataSet.content",
+						"type": "java.lang.String"
+					},
+					{
+						"name": "graph",
+						"value": "bind:Variables.query_input.dataSet.graph",
+						"type": "java.lang.String"
+					},
+					{
+						"name": "validate",
+						"value": "bind:Variables.query_input.dataSet.validate",
+						"type": "java.lang.String"
+					},
+					{
+						"name": "view",
+						"value": "bind:Variables.query_input.dataSet.view",
+						"type": "java.lang.String"
+					},
+					{
+						"name": "nruns",
+						"value": "bind:Variables.query_input.dataSet.nruns",
+						"type": "java.lang.String"
+					},
+					{
+						"name": "details",
+						"value": "bind:Variables.query_input.dataSet.details",
+						"type": "java.lang.String"
+					},
+					{
+						"name": "memo",
+						"value": "bind:Variables.query_input.dataSet.memo",
+						"type": "java.lang.String"
+					},
+					{
+						"name": "session",
+						"value": "bind:Variables.query_input.dataSet.session",
+						"type": "java.lang.String"
+					},
+					{
+						"name": "csvf",
+						"type": "string",
+						"isList": false,
+						"value": "bind:Variables.query_input.dataSet.csvf"
+					}
+				]
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"service": "graphquery",
+		"operation": "invoke",
+		"operationType": null,
+		"startUpdate": false,
+		"autoUpdate": true,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"onCanUpdate": "Javascript",
+		"onBeforeUpdate": "Javascript",
+		"onResult": "Javascript",
+		"onSuccess": "Javascript",
+		"serviceType": "RestService",
+		"category": "wm.ServiceVariable",
+		"isDefault": true,
+		"wmServiceOperationInfo": {
+			"httpMethod": "GET",
+			"name": "invoke",
+			"parameters": [
+				{
+					"name": "content",
+					"parameterType": "QUERY"
+				},
+				{
+					"name": "graph",
+					"parameterType": "QUERY"
+				},
+				{
+					"name": "memo",
+					"parameterType": "QUERY"
+				},
+				{
+					"name": "details",
+					"parameterType": "QUERY"
+				},
+				{
+					"name": "session",
+					"parameterType": "QUERY"
+				},
+				{
+					"name": "view",
+					"parameterType": "QUERY"
+				},
+				{
+					"name": "nruns",
+					"parameterType": "QUERY"
+				},
+				{
+					"name": "validate",
+					"parameterType": "QUERY"
+				},
+				{
+					"name": "csvf",
+					"parameterType": "QUERY"
+				}
+			],
+			"relativePath": "/graphquery/invoke"
+		},
+		"_id": "wm-GraphqueryInvoke-wm.ServiceVariable-1459708896597"
+	},
+	"wf_task": {
+		"name": "wf_task",
+		"type": "string",
+		"isList": true,
+		"owner": "Page",
+		"dataSet": [],
+		"dataBinding": [
+			{
+				"name": "dataSet",
+				"fields": [
+					{
+						"name": "Name",
+						"type": "string"
+					},
+					{
+						"name": "Description",
+						"type": "string"
+					},
+					{
+						"name": "Input",
+						"type": "string"
+					},
+					{
+						"name": "Output",
+						"type": "string"
+					}
+				],
+				"type": "object",
+				"isList": true
+			}
+		],
+		"saveInPhonegap": false,
+		"category": "wm.Variable",
+		"_id": "wm-wf_task-wm.Variable-1461168082180"
+	},
+	"GetattributeInvoke": {
+		"name": "GetattributeInvoke",
+		"type": "getattribute.RootResponse",
+		"isList": false,
+		"owner": "Page",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "object",
+				"fields": [
+					{
+						"name": "network",
+						"value": "bind:Widgets.network_name.caption",
+						"type": "java.lang.String"
+					},
+					{
+						"name": "target",
+						"value": "bind:Widgets.target_type.datavalue",
+						"type": "java.lang.String"
+					}
+				]
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"service": "getattribute",
+		"operation": "invoke",
+		"operationType": null,
+		"startUpdate": false,
+		"autoUpdate": true,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"onBeforeUpdate": "Javascript",
+		"serviceType": "RestService",
+		"category": "wm.ServiceVariable",
+		"isDefault": true,
+		"wmServiceOperationInfo": {
+			"httpMethod": "GET",
+			"name": "invoke",
+			"parameters": [
+				{
+					"name": "target",
+					"parameterType": "QUERY"
+				},
+				{
+					"name": "network",
+					"parameterType": "QUERY"
+				}
+			],
+			"relativePath": "/getattribute/invoke"
+		},
+		"_id": "wm-GetattributeInvoke-wm.ServiceVariable-1461194030689"
+	},
+	"executewfInvoke": {
+		"name": "executewfInvoke",
+		"type": "executewf.RootResponse",
+		"isList": false,
+		"owner": "Page",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "object",
+				"fields": [
+					{
+						"name": "wf",
+						"value": "",
+						"type": "java.lang.String"
+					},
+					{
+						"name": "input",
+						"value": "",
+						"type": "java.lang.String"
+					}
+				]
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"service": "executewf",
+		"operation": "invoke",
+		"operationType": null,
+		"startUpdate": false,
+		"autoUpdate": true,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"onBeforeUpdate": "Javascript",
+		"serviceType": "RestService",
+		"category": "wm.ServiceVariable",
+		"isDefault": true,
+		"wmServiceOperationInfo": {
+			"httpMethod": "GET",
+			"name": "invoke",
+			"parameters": [
+				{
+					"name": "input",
+					"parameterType": "QUERY"
+				},
+				{
+					"name": "wf",
+					"parameterType": "QUERY"
+				}
+			],
+			"relativePath": "/executewf/invoke"
+		},
+		"_id": "wm-executewfInvoke-ExecutewfInvoke-wm.ServiceVariable-1461277925261"
+	},
+	"plot_url": {
+		"name": "plot_url",
+		"type": "string",
+		"isList": false,
+		"owner": "Page",
+		"dataSet": {
+			"url": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataSet",
+				"fields": [
+					{
+						"name": "url",
+						"type": "string"
+					}
+				],
+				"type": "object",
+				"isList": false
+			}
+		],
+		"saveInPhonegap": false,
+		"category": "wm.Variable",
+		"_id": "wm-plot_url-wm.Variable-1461530464604"
+	},
+	"net_viz": {
+		"name": "net_viz",
+		"type": "string",
+		"isList": false,
+		"owner": "Page",
+		"dataSet": {
+			"url": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataSet",
+				"type": "object",
+				"fields": [
+					{
+						"name": "dataValue",
+						"type": "string"
+					}
+				]
+			}
+		],
+		"saveInPhonegap": false,
+		"category": "wm.Variable",
+		"_id": "wm-net_viz-wm.Variable-1461853398019"
+	}
+}
+</script>
+<script id="Main.html" type="text/ng-template">
+<wm-page data-ng-controller="MainPageController" name="page1">
+    <wm-header content="header" name="header1" backgroundcolor="#b8a7a7" color="#1c1414"></wm-header>
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-view name="view_all" show="true" readonlygrid="true">
+                <wm-tabs name="tabs2">
+                    <wm-tabpane name="tabpane2_1">
+                        <wm-tabheader name="tabheader2_1" heading="All" readonlygrid="true"></wm-tabheader>
+                        <wm-tabcontent name="tabcontent2_1">
+                            <wm-grid readonlygrid="true" showheader="true" showrecordcount="true" gridsearch="true" dataset="bind:Variables.GraphInfoInvoke.dataSet" on-rowclick="grid4Rowclick($event, $data)" name="grid4">
+                                <wm-grid-column binding="name" caption="Name" type="string" readonly="false" col-class="" col-ng-class="" search-placeholder="Search" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                                <wm-grid-column binding="description" caption="Description" type="string" readonly="false" col-class="" col-ng-class="" search-placeholder="Search" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                            </wm-grid>
+                        </wm-tabcontent>
+                    </wm-tabpane>
+                    <wm-tabpane name="tabpane2">
+                        <wm-tabheader name="tabheader2" heading="My"></wm-tabheader>
+                        <wm-tabcontent name="tabcontent2" readonlygrid="true">
+                            <wm-grid readonlygrid="true" name="grid2" showheader="true" showrecordcount="true" gridsearch="true" dataset="bind:Variables.Graphinfo2Invoke.dataSet" on-rowclick="grid2Rowclick($event, $data)">
+                                <wm-grid-column binding="name" caption="Name" type="string" readonly="false" col-class="" col-ng-class="" search-placeholder="Search" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                                <wm-grid-column binding="description" caption="Description" type="string" readonly="false" col-class="" col-ng-class="" search-placeholder="Search" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                            </wm-grid>
+                        </wm-tabcontent>
+                    </wm-tabpane>
+                </wm-tabs>
+            </wm-view>
+            <wm-view name="view1" show="false">
+                <wm-form class="panel-default" name="form1">
+                    <wm-fileupload name="fileupload1" caption="Upload Metadata" destination="/graphfiles/"></wm-fileupload>
+                    <wm-fileupload caption="Upload Node File" name="fileupload2" destination="/graphfiles/" readonlygrid="true"></wm-fileupload>
+                    <wm-fileupload caption="Upload Edge File" name="fileupload3" destination="/graphfiles/"></wm-fileupload>
+                    <wm-buttongroup horizontalalign="right" class="form-action col-md-12" name="buttongroup1">
+                        <wm-button caption="Reset" type="reset" class="btn-secondary" name="button2"></wm-button>
+                        <wm-button caption="Cancel" type="button" class="btn-warning" name="button3"></wm-button>
+                        <wm-button caption="Submit" type="submit" class="btn-primary" name="button4" on-click="navigation2"></wm-button>
+                    </wm-buttongroup>
+                </wm-form>
+            </wm-view>
+            <wm-view name="graph_details" show="true" readonlygrid="true">
+                <wm-form title="Network Information" class="panel-default" name="form4">
+                    <wm-layoutgrid name="layoutgrid4">
+                        <wm-gridrow name="gridrow12">
+                            <wm-gridcolumn name="gridcolumn12">
+                                <wm-composite name="composite9">
+                                    <wm-label class="col-md-3" caption="Name" name="label9"></wm-label>
+                                    <wm-container class="col-md-9" name="container9">
+                                        <wm-label name="label10_1" width="264" caption="bind:Variables.graphName.dataSet.dataValue" readonlygrid="true" show="false"></wm-label>
+                                        <wm-label name="label11_2" caption="bind:Variables.graphName.dataSet.name" readonlygrid="true"></wm-label>
+                                    </wm-container>
+                                </wm-composite>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow13">
+                            <wm-gridcolumn name="gridcolumn13">
+                                <wm-composite name="composite10">
+                                    <wm-label class="col-md-3" caption="Directed" name="label10"></wm-label>
+                                    <wm-container class="col-md-9" name="container10">
+                                        <wm-label name="label12_1" caption="" readonlygrid="true"></wm-label>
+                                        <wm-label caption="bind:Variables.graphName.dataSet.directed" readonlygrid="true" name="label16"></wm-label>
+                                    </wm-container>
+                                </wm-composite>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow14">
+                            <wm-gridcolumn name="gridcolumn14">
+                                <wm-composite horizontalalign="left" name="composite11_1">
+                                    <wm-label class="col-md-3" caption="Description" name="label11_1"></wm-label>
+                                    <wm-container class="col-md-9" name="container11">
+                                        <wm-label name="label13_1" caption="bind:Variables.graphName.dataSet.description"></wm-label>
+                                    </wm-container>
+                                </wm-composite>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridcolumn name="gridcolumn15">
+                            <wm-composite name="composite12">
+                                <wm-label class="col-md-3" caption="Number of Nodes" name="label12"></wm-label>
+                                <wm-container class="col-md-9" name="container12_1">
+                                    <wm-label name="label14" caption="bind:Variables.graphName.dataSet.nodes"></wm-label>
+                                </wm-container>
+                            </wm-composite>
+                            <wm-gridcolumn name="gridcolumn16">
+                                <wm-composite name="composite13">
+                                    <wm-label class="col-md-3" caption="Number of Edges" name="label13"></wm-label>
+                                    <wm-container class="col-md-9" name="container13">
+                                        <wm-label name="label15" caption="bind:Variables.graphName.dataSet.edges"></wm-label>
+                                    </wm-container>
+                                </wm-composite>
+                                <wm-composite name="composite10_1">
+                                    <wm-label class="col-md-3" caption="Attributes" name="label17"></wm-label>
+                                    <wm-container class="col-md-9" name="container10_1" backgroundcolor="#ffffff">
+                                        <wm-accordion name="accordion1" closeothers="false">
+                                            <wm-accordionpane name="accordionpane1">
+                                                <wm-accordionheader name="accordionheader1" heading="Node" backgroundcolor="#fff2cc"></wm-accordionheader>
+                                                <wm-accordioncontent name="accordioncontent1" backgroundcolor="#ffffff">
+                                                    <wm-label name="label19" caption="bind:Variables.graphName.dataSet.node_att"></wm-label>
+                                                </wm-accordioncontent>
+                                            </wm-accordionpane>
+                                            <wm-accordionpane name="accordionpane2">
+                                                <wm-accordionheader name="accordionheader2" heading="Edge" backgroundcolor="#fff2cc"></wm-accordionheader>
+                                                <wm-accordioncontent name="accordioncontent2">
+                                                    <wm-label name="label20" caption="bind:Variables.graphName.dataSet.edge_att"></wm-label>
+                                                </wm-accordioncontent>
+                                            </wm-accordionpane>
+                                        </wm-accordion>
+                                    </wm-container>
+                                </wm-composite>
+                            </wm-gridcolumn>
+                        </wm-gridcolumn>
+                    </wm-layoutgrid>
+                    <wm-buttongroup horizontalalign="right" class="form-action col-md-12" name="buttongroup4">
+                        <wm-button caption="Network List" type="button" class="btn-warning" name="button13" iconclass="glyphicon glyphicon-arrow-left" on-click="navigationall" readonlygrid="true"></wm-button>
+                        <wm-button caption="Visualize" type="button" name="button14_2" on-click="iframedialog1.show" iconclass="fa fa-sun-o"></wm-button>
+                        <wm-button caption="Data Explorer" type="submit" class="btn-primary" name="button14" iconclass="glyphicon glyphicon-arrow-right" on-click="navigation3"></wm-button>
+                    </wm-buttongroup>
+                </wm-form>
+            </wm-view>
+            <wm-view name="graph_explore" readonlygrid="true" show="false">
+                <wm-tabs name="tabs2_1" readonlygrid="true" color="#000000">
+                    <wm-tabpane name="tabpane3">
+                        <wm-tabheader name="tabheader3" heading="Query" color="#000000"></wm-tabheader>
+                        <wm-tabcontent name="tabcontent3" readonlygrid="true">
+                            <wm-form class="panel-default" name="form3" whitespace="normal" backgroundcolor="#ffffff" color="#000000">
+                                <wm-layoutgrid name="layoutgrid3">
+                                    <wm-gridrow name="gridrow11">
+                                        <wm-gridcolumn columnwidth="12" name="gridcolumn14_1">
+                                            <wm-label caption="Inputs" fontweight="bold" name="label31"></wm-label>
+                                        </wm-gridcolumn>
+                                    </wm-gridrow>
+                                    <wm-gridrow name="gridrow8">
+                                        <wm-gridcolumn name="gridcolumn10">
+                                            <wm-composite name="composite11_2">
+                                                <wm-label class="col-md-3" caption="Input Query" name="label20_1" width="102"></wm-label>
+                                                <wm-container class="col-md-9" name="container11_1">
+                                                    <wm-text tabindex="1" placeholder="" name="query_text" on-click="query_textClick($event, $scope)"></wm-text>
+                                                </wm-container>
+                                            </wm-composite>
+                                        </wm-gridcolumn>
+                                    </wm-gridrow>
+                                    <wm-gridrow name="gridrow10">
+                                        <wm-gridcolumn name="gridcolumn12_1">
+                                            <wm-composite name="composite14">
+                                                <wm-label class="col-md-3" name="label23" caption="Seed Mode" height="24" width="103"></wm-label>
+                                                <wm-container class="col-md-9" name="container14">
+                                                    <wm-switch datavalue="no" name="seed_mode" dataset="yes, no"></wm-switch>
+                                                </wm-container>
+                                            </wm-composite>
+                                            <wm-composite name="composite17">
+                                                <wm-label class="col-md-3" caption="Result Details" height="24" width="103" name="label27"></wm-label>
+                                                <wm-container class="col-md-9" name="container17">
+                                                    <wm-composite name="composite20">
+                                                        <wm-container class="col-md-9" name="container19">
+                                                            <wm-select name="details" width="100" datavalue="Only IDs" dataset="Only IDs, IDs + Attributes"></wm-select>
+                                                        </wm-container>
+                                                    </wm-composite>
+                                                </wm-container>
+                                            </wm-composite>
+                                            <wm-composite name="composite18">
+                                                <wm-label class="col-md-3" caption="Reuslt Format" height="24" width="103" name="format_label"></wm-label>
+                                                <wm-container class="col-md-9" name="container18">
+                                                    <wm-composite name="composite19">
+                                                        <wm-container class="col-md-9" name="container19_1">
+                                                            <wm-select width="100" datavalue="JSON" dataset="JSON" name="result_format"></wm-select>
+                                                        </wm-container>
+                                                    </wm-composite>
+                                                </wm-container>
+                                            </wm-composite>
+                                        </wm-gridcolumn>
+                                    </wm-gridrow>
+                                </wm-layoutgrid>
+                                <wm-buttongroup horizontalalign="right" class="form-action col-md-12" name="buttongroup3" readonlygrid="true">
+                                    <wm-button caption="Network Infomation" type="button" class="btn-warning" name="button7" iconclass="glyphicon glyphicon-arrow-left" on-click="gotoGraphDetails"></wm-button>
+                                    <wm-button caption="Run" type="submit" class="btn-primary" name="button8" iconclass="fa fa-flash" on-click="button8Click($event, $scope)"></wm-button>
+                                </wm-buttongroup>
+                            </wm-form>
+                            <wm-label name="label24" caption="Query Result" fontweight="bold"></wm-label>
+                            <wm-layoutgrid name="layoutgrid4_1">
+                                <wm-gridrow name="gridrow10_1">
+                                    <wm-gridcolumn columnwidth="1" name="gridcolumn12_2">
+                                        <wm-label name="label25" caption="Coverage %" width="143"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn13_1">
+                                        <wm-progress name="progress1" width="276" datavalue="0"></wm-progress>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                            <wm-textarea name="textarea3" placeholder="" scopedatavalue="json_result" height="293" width="968" readonly="false" autofocus="false" color="#000000"></wm-textarea>
+                        </wm-tabcontent>
+                    </wm-tabpane>
+                    <wm-tabpane name="tabpane4">
+                        <wm-tabheader name="tabheader4" heading="Analyze"></wm-tabheader>
+                        <wm-tabcontent name="tabcontent4">
+                            <wm-label name="label27_1" caption="Workflow Designer" fontweight="bold"></wm-label>
+                            <wm-composite name="composite17_1">
+                                <wm-container class="col-md-9" name="container17_1">
+                                    <wm-button caption="Add Process" type="button" name="button8_1" iconclass="fa fa-plus-circle" on-click="dialog1.show"></wm-button>
+                                    <wm-button caption="Reset Workflow" type="button" name="button9" iconclass="fa fa-minus-circle" on-click="button9Click($event, $scope)"></wm-button>
+                                </wm-container>
+                            </wm-composite>
+                            <wm-grid readonlygrid="false" name="grid3" enablesort="false" showrowindex="false" radioselect="false" multiselect="false" shownavigation="false" insertrow="true" updaterow="true" deleterow="false" dataset="bind:Variables.wf_task.dataSet"
+                            nodatamessage="No process found.">
+                                <wm-grid-column binding="Name" caption="Name" type="string" width="200px" readonly="false" col-class="" col-ng-class="" search-placeholder="Search" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                                <wm-grid-column binding="Description" caption="Description" type="string" width="300px" readonly="false" col-class="" col-ng-class="" search-placeholder="Search" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                                <wm-grid-column binding="Input" caption="Input" type="string" width="250px" readonly="false" col-class="" col-ng-class="" search-placeholder="Search" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                                <wm-grid-column binding="Output" caption="Output" type="string" width="150px" readonly="false" col-class="" col-ng-class="" search-placeholder="Search" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                                <wm-grid-action key="addNewRow" label="New" show="true" class="btn-primary" icon="new" action="addNewRow()" type="button"></wm-grid-action>
+                            </wm-grid>
+                            <wm-form class="panel-default" name="form4_1">
+                                <wm-buttongroup horizontalalign="right" class="form-action col-md-12" name="buttongroup4_1">
+                                    <wm-button caption="Network Infomation" type="button" class="btn-warning" iconclass="glyphicon glyphicon-arrow-left" on-click="gotoGraphDetails" name="button15"></wm-button>
+                                    <wm-button caption="Run" type="submit" class="btn-primary" iconclass="fa fa-flash" on-click="button14_1Click($event, $scope)" name="button14_1"></wm-button>
+                                </wm-buttongroup>
+                            </wm-form>
+                            <wm-label caption="Workflow Result" fontweight="bold" name="label36_3"></wm-label>
+                            <wm-gridrow name="gridrow12_1"></wm-gridrow>
+                            <wm-textarea name="textarea4" width="968" placeholder="" scopedatavalue="json_result_wf" height="293" show="true"></wm-textarea>
+                            <wm-container name="container39_2" horizontalalign="left">
+                                <wm-button caption="Download PNG" type="button" width="118" iconclass="glyphicon glyphicon-download-alt" name="button17" on-click="button17Click($event, $scope)" show="false"></wm-button>
+                                <wm-button caption="Download PDF" type="button" name="button16" width="118" iconclass="glyphicon glyphicon-download-alt" on-click="button16Click($event, $scope)" show="false"></wm-button>
+                                <wm-button caption="Download Data" type="button" width="118" iconclass="glyphicon glyphicon-download-alt" on-click="button16Click($event, $scope)" show="false" name="button17_1"></wm-button>
+                                <wm-container name="container40_1">
+                                    <wm-picture name="plot_result" picturesource="bind:Variables.plot_url.dataSet.url" height="400" show="false" animation="pulse"></wm-picture>
+                                </wm-container>
+                            </wm-container>
+                            <wm-spinner show="false" name="spinner2" caption="Executing..."></wm-spinner>
+                        </wm-tabcontent>
+                    </wm-tabpane>
+                </wm-tabs>
+            </wm-view>
+            <wm-view name="view9" show="false"></wm-view>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+    <wm-view class="dialog-view" name="view5">
+        <wm-confirmdialog name="notificationconfirmdialog" controller="NotificationDialogController" notificationdialog="confirm" message="{{notification.text}}" title="confirm" oktext="{{notification.okButtonText}}" canceltext="{{notification.cancelButtonText}}"
+        on-ok="variableOnOk()" on-cancel="variableOnCancel()" on-close="variableOnClose()" width="251"></wm-confirmdialog>
+    </wm-view>
+    <wm-view class="dialog-view" name="view6">
+        <wm-alertdialog name="notificationalertdialog" controller="NotificationDialogController" notificationdialog="alert" message="{{notification.text}}" title="alert" oktext="{{notification.okButtonText}}" alerttype="{{notification.alerttype}}" on-ok="variableOnOk()"
+        on-close="variableOnClose()" readonlygrid="true"></wm-alertdialog>
+    </wm-view>
+    <wm-view class="dialog-view" name="execute_query_process" show="false">
+        <wm-dialog dialogtype="design-dialog" modal="true" name="dialog1" readonlygrid="true">
+            <wm-dialogheader caption="New Process" iconclass="fa fa-cog" name="dialogheader1"></wm-dialogheader>
+            <wm-dialogcontent name="dialogcontent1" show="true" readonlygrid="true">
+                <wm-form class="app-dialog-form" name="form5">
+                    <wm-composite name="composite28">
+                        <wm-label class="col-md-3" name="label36" width="57" caption="Network"></wm-label>
+                        <wm-container class="col-md-9" name="container24">
+                            <wm-label name="network_name" caption="bind:Variables.graphName.dataSet.name"></wm-label>
+                        </wm-container>
+                    </wm-composite>
+                    <wm-composite name="composite21">
+                        <wm-label class="col-md-3" name="label33" width="76" caption="Process Type"></wm-label>
+                        <wm-container class="col-md-9" name="container20">
+                            <wm-select name="process_type" width="227" on-click="select6Click($event, $scope)" on-change="select6Change($event, $scope)" required="true" scopedataset="process_items" scopedatavalue="process_default"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                    <wm-container name="query_execute_input" show="false" readonlygrid="true">
+                        <wm-composite name="composite27">
+                            <wm-text name="query_input" placeholder="Input Query..." required="true" readonlygrid="true" width="551" height="28"></wm-text>
+                        </wm-composite>
+                        <wm-composite name="composite25">
+                            <wm-label class="col-md-3" caption="Target" width="54" name="label38"></wm-label>
+                            <wm-container class="col-md-9" name="container29">
+                                <wm-select width="84" datavalue="node" dataset="node, edge" name="target_type_q" readonlygrid="true"></wm-select>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-container>
+                    <wm-container show="false" name="network_attribute_input">
+                        <wm-composite name="composite23">
+                            <wm-label class="col-md-3" caption="Target" width="54" name="label36_1"></wm-label>
+                            <wm-container class="col-md-9" name="container27">
+                                <wm-select width="84" datavalue="node" dataset="node, edge" name="target_type" on-change="select8Change($event, $scope)"></wm-select>
+                            </wm-container>
+                        </wm-composite>
+                        <wm-composite name="composite24">
+                            <wm-label class="col-md-3" name="label37" width="56" caption="Attribute"></wm-label>
+                            <wm-container class="col-md-9" name="container28">
+                                <wm-select name="attribute_name" width="142" readonlygrid="true" dataset="bind:Variables.GetattributeInvoke.dataSet.datavalue"></wm-select>
+                            </wm-container>
+                        </wm-composite>
+                        <wm-composite name="composite42_1">
+                            <wm-label class="col-md-3" width="109" caption="Condition (optional)" name="label52_1"></wm-label>
+                            <wm-container class="col-md-9" name="container48_1">
+                                <wm-text name="text14" width="396" placeholder=""></wm-text>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-container>
+                    <wm-container show="false" name="query_attribute_input" readonlygrid="true">
+                        <wm-composite name="composite_99">
+                            <wm-label class="col-md-3" width="56" caption="Attribute" name="label35"></wm-label>
+                            <wm-container class="col-md-9" name="container26">
+                                <wm-select width="142" name="attribute_name2" dataset="bind:Variables.GetattributeInvoke.dataSet.datavalue"></wm-select>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-container>
+                    <wm-container show="false" name="stat_operation_input">
+                        <wm-composite name="composite25_1">
+                            <wm-label class="col-md-3" width="56" caption="Operation" name="label36_2"></wm-label>
+                            <wm-container class="col-md-9" name="container28_1">
+                                <wm-select width="142" name="stat_op_type" datavalue="Sum" dataset="Sum, Min, Max, Product, Median, Average, Standard Deviation, Variance, Count"></wm-select>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-container>
+                </wm-form>
+                <wm-container show="false" name="plot_operation">
+                    <wm-composite name="composite26" show="true">
+                        <wm-label class="col-md-3" width="56" caption="Type" name="label39"></wm-label>
+                        <wm-container class="col-md-9" name="container30">
+                            <wm-select width="216" datavalue="Degree Distribution" dataset="Degree Distribution,Clustering Coefficient Distribution,Variable(s) Value,K-core Distribution" name="plot_type" on-change="plot_typeChange($event, $scope)"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                    <wm-panel class="panel-default" collapsible="true" showheader="true" name="panel2" title="Plot Settings" show="true" expanded="true" closable="false">
+                        <wm-composite name="composite27_1">
+                            <wm-label class="col-md-3" name="label40" width="62" caption="X-Label"></wm-label>
+                            <wm-container class="col-md-9" name="container31">
+                                <wm-text name="xlabel" height="24" width="146" placeholder=""></wm-text>
+                            </wm-container>
+                        </wm-composite>
+                        <wm-composite name="composite29">
+                            <wm-label class="col-md-3" width="62" caption="Y-Label" name="label42"></wm-label>
+                            <wm-container class="col-md-9" name="container33">
+                                <wm-text height="24" width="146" name="ylabel" placeholder=""></wm-text>
+                            </wm-container>
+                        </wm-composite>
+                        <wm-composite name="composite30">
+                            <wm-label class="col-md-3" name="label43" caption="Axis Font Size" width="85"></wm-label>
+                            <wm-container class="col-md-9" name="container34">
+                                <wm-slider name="xfont" height="35" width="120" minvalue="5" maxvalue="40" step="5" datavalue="30"></wm-slider>
+                            </wm-container>
+                        </wm-composite>
+                        <wm-composite name="composite31">
+                            <wm-label class="col-md-3" caption="Tick Font Size" width="85" name="label44"></wm-label>
+                            <wm-container class="col-md-9" name="container35">
+                                <wm-slider height="35" width="120" minvalue="5" maxvalue="40" step="5" datavalue="30" name="tfont"></wm-slider>
+                            </wm-container>
+                        </wm-composite>
+                        <wm-composite name="composite35">
+                            <wm-label class="col-md-3" width="85" caption="Marker Type" name="label48"></wm-label>
+                            <wm-container class="col-md-9" name="container39">
+                                <wm-text height="24" width="47" placeholder="" name="mtype"></wm-text>
+                            </wm-container>
+                        </wm-composite>
+                        <wm-composite name="composite35_1">
+                            <wm-label class="col-md-3" width="85" caption="Marker Color" name="label47"></wm-label>
+                            <wm-container class="col-md-9" name="container39_1">
+                                <wm-text height="24" width="48" placeholder="" name="mcolor"></wm-text>
+                            </wm-container>
+                        </wm-composite>
+                        <wm-composite name="composite36">
+                            <wm-label class="col-md-3" caption="Marker Size" width="85" name="label49"></wm-label>
+                            <wm-container class="col-md-9" name="container40">
+                                <wm-slider height="35" width="120" minvalue="5" maxvalue="40" step="5" datavalue="30" name="msize"></wm-slider>
+                            </wm-container>
+                        </wm-composite>
+                        <wm-composite name="num_bins" show="false">
+                            <wm-label class="col-md-3" width="88" caption="Number of Bins" name="label80"></wm-label>
+                            <wm-container class="col-md-9" name="container75">
+                                <wm-text height="24" width="48" placeholder="" name="nbin"></wm-text>
+                            </wm-container>
+                        </wm-composite>
+                        <wm-composite name="bcolors" show="false">
+                            <wm-label class="col-md-3" width="96" caption="Bar Color(s)" name="b_color"></wm-label>
+                            <wm-container class="col-md-9" name="container47">
+                                <wm-text height="24" width="110" placeholder="" name="text16"></wm-text>
+                            </wm-container>
+                        </wm-composite>
+                        <wm-composite show="true" readonlygrid="true" name="l_style">
+                            <wm-label class="col-md-3" width="82" caption="Line Style" name="label50_1"></wm-label>
+                            <wm-container class="col-md-9" name="container46">
+                                <wm-composite name="composite42">
+                                    <wm-select name="lstyle" height="26" width="51" dataset="-,--,_"></wm-select>
+                                </wm-composite>
+                            </wm-container>
+                        </wm-composite>
+                        <wm-composite show="true" readonlygrid="true" name="l_width">
+                            <wm-label class="col-md-3" width="87" caption="Line Width" name="label52"></wm-label>
+                            <wm-container class="col-md-9" name="container48">
+                                <wm-slider height="35" width="120" minvalue="1" maxvalue="40" step="2" datavalue="5" name="lwidth"></wm-slider>
+                            </wm-container>
+                        </wm-composite>
+                        <wm-composite name="composite37">
+                            <wm-label class="col-md-3" width="63" caption="Plot Title" name="label50"></wm-label>
+                            <wm-container class="col-md-9" name="container41">
+                                <wm-text height="24" width="141" placeholder="" name="ptitle"></wm-text>
+                            </wm-container>
+                        </wm-composite>
+                        <wm-composite name="vnames" show="false" readonlygrid="true">
+                            <wm-label class="col-md-3" width="96" caption="Variable Name(s)" name="var_name"></wm-label>
+                            <wm-container class="col-md-9" name="container44">
+                                <wm-text height="24" width="383" placeholder="" name="v_name"></wm-text>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-panel>
+                </wm-container>
+                <wm-container show="false" name="save_variable">
+                    <wm-composite name="variable_name" show="true">
+                        <wm-label class="col-md-3" width="86" caption="Variable Name" name="label49_1"></wm-label>
+                        <wm-container class="col-md-9" name="container45">
+                            <wm-text name="vname" width="180" placeholder=""></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-container>
+            </wm-dialogcontent>
+            <wm-dialogactions name="dialogactions1">
+                <wm-button class="btn-secondary" caption="Cancel" on-click="closeDialog()" name="button12" iconclass="glyphicon glyphicon-remove-circle"></wm-button>
+                <wm-button class="btn-primary" caption="Add" name="button13_1" iconclass="glyphicon glyphicon-plus-sign" on-click="button13_1Click($event, $scope)" readonlygrid="true"></wm-button>
+            </wm-dialogactions>
+        </wm-dialog>
+    </wm-view>
+    <wm-view class="dialog-view" name="view10" show="false">
+        <wm-iframedialog name="iframedialog1" url="bind:&quot;http://edisondev.vbi.vt.edu:8080/netviewer/index.html#&quot;+Variables.graphName.dataSet.name+&quot;.gexf&quot;" width="860" height="750" readonlygrid="true" title="Network Visualization" closable="true"
+        animation="pulse" iconclass="fa fa-sun-o"></wm-iframedialog>
+    </wm-view>
+</wm-page>
+</script>

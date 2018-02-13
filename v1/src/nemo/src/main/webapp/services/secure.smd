@@ -1,0 +1,5 @@
+{
+	"methods": [],
+	"serviceURL": "secure.json",
+	"serviceType": "JSON-RPC"
+}

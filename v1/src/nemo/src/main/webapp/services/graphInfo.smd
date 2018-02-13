@@ -1,0 +1,13 @@
+{
+	"methods": [{
+		"operationType": null,
+		"name": "invoke",
+		"parameters": [{
+			"name": "user",
+			"type": "java.lang.String"
+		}],
+		"returnType": "[graphInfo.RootResponseROOTEntryItem]"
+	}],
+	"serviceURL": "graphInfo.json",
+	"serviceType": "JSON-RPC"
+}

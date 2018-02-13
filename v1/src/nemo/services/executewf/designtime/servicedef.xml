@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" id="executewf" CRUDService="false" type="RestService" springFile="executewf.spring.xml">
+    <operation name="invoke">
+        <parameter name="input" typeRef="java.lang.String" isList="false"/>
+        <parameter name="wf" typeRef="java.lang.String" isList="false"/>
+        <return typeRef="executewf.RootResponse" isList="false"/>
+    </operation>
+    <dataobjects>
+        <dataobject javaType="executewf.RootResponse" name="RootResponse" supportsQuickData="false"/>
+    </dataobjects>
+</service>

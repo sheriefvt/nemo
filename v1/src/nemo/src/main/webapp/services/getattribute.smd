@@ -1,0 +1,16 @@
+{
+	"methods": [{
+		"operationType": null,
+		"name": "invoke",
+		"parameters": [{
+			"name": "target",
+			"type": "java.lang.String"
+		}, {
+			"name": "network",
+			"type": "java.lang.String"
+		}],
+		"returnType": "getattribute.RootResponse"
+	}],
+	"serviceURL": "getattribute.json",
+	"serviceType": "JSON-RPC"
+}

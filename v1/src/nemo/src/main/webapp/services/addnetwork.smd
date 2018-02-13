@@ -1,0 +1,13 @@
+{
+	"methods": [{
+		"operationType": null,
+		"name": "invoke",
+		"parameters": [{
+			"name": "name",
+			"type": "java.lang.String"
+		}],
+		"returnType": "addnetwork.RootResponse"
+	}],
+	"serviceURL": "addnetwork.json",
+	"serviceType": "JSON-RPC"
+}

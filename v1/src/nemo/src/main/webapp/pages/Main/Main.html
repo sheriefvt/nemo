@@ -1,0 +1,417 @@
+<wm-page data-ng-controller="MainPageController" name="page1">
+    <wm-header content="header" name="header1" backgroundcolor="#b8a7a7" color="#1c1414"></wm-header>
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-view name="view_all" show="true" readonlygrid="true">
+                <wm-tabs name="tabs2">
+                    <wm-tabpane name="tabpane2_1">
+                        <wm-tabheader name="tabheader2_1" heading="All" readonlygrid="true"></wm-tabheader>
+                        <wm-tabcontent name="tabcontent2_1">
+                            <wm-grid readonlygrid="true" showheader="true" showrecordcount="true" gridsearch="true" dataset="bind:Variables.GraphInfoInvoke.dataSet" on-rowclick="grid4Rowclick($event, $data)" name="grid4">
+                                <wm-grid-column binding="name" caption="Name" type="string" readonly="false" col-class="" col-ng-class="" search-placeholder="Search" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                                <wm-grid-column binding="description" caption="Description" type="string" readonly="false" col-class="" col-ng-class="" search-placeholder="Search" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                            </wm-grid>
+                        </wm-tabcontent>
+                    </wm-tabpane>
+                    <wm-tabpane name="tabpane2">
+                        <wm-tabheader name="tabheader2" heading="My"></wm-tabheader>
+                        <wm-tabcontent name="tabcontent2" readonlygrid="true">
+                            <wm-grid readonlygrid="true" name="grid2" showheader="true" showrecordcount="true" gridsearch="true" dataset="bind:Variables.Graphinfo2Invoke.dataSet" on-rowclick="grid2Rowclick($event, $data)">
+                                <wm-grid-column binding="name" caption="Name" type="string" readonly="false" col-class="" col-ng-class="" search-placeholder="Search" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                                <wm-grid-column binding="description" caption="Description" type="string" readonly="false" col-class="" col-ng-class="" search-placeholder="Search" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                            </wm-grid>
+                        </wm-tabcontent>
+                    </wm-tabpane>
+                </wm-tabs>
+            </wm-view>
+            <wm-view name="view1" show="false">
+                <wm-form class="panel-default" name="form1">
+                    <wm-fileupload name="fileupload1" caption="Upload Metadata" destination="/graphfiles/"></wm-fileupload>
+                    <wm-fileupload caption="Upload Node File" name="fileupload2" destination="/graphfiles/" readonlygrid="true"></wm-fileupload>
+                    <wm-fileupload caption="Upload Edge File" name="fileupload3" destination="/graphfiles/"></wm-fileupload>
+                    <wm-buttongroup horizontalalign="right" class="form-action col-md-12" name="buttongroup1">
+                        <wm-button caption="Reset" type="reset" class="btn-secondary" name="button2"></wm-button>
+                        <wm-button caption="Cancel" type="button" class="btn-warning" name="button3"></wm-button>
+                        <wm-button caption="Submit" type="submit" class="btn-primary" name="button4" on-click="navigation2"></wm-button>
+                    </wm-buttongroup>
+                </wm-form>
+            </wm-view>
+            <wm-view name="graph_details" show="true" readonlygrid="true">
+                <wm-form title="Network Information" class="panel-default" name="form4">
+                    <wm-layoutgrid name="layoutgrid4">
+                        <wm-gridrow name="gridrow12">
+                            <wm-gridcolumn name="gridcolumn12">
+                                <wm-composite name="composite9">
+                                    <wm-label class="col-md-3" caption="Name" name="label9"></wm-label>
+                                    <wm-container class="col-md-9" name="container9">
+                                        <wm-label name="label10_1" width="264" caption="bind:Variables.graphName.dataSet.dataValue" readonlygrid="true" show="false"></wm-label>
+                                        <wm-label name="label11_2" caption="bind:Variables.graphName.dataSet.name" readonlygrid="true"></wm-label>
+                                    </wm-container>
+                                </wm-composite>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow13">
+                            <wm-gridcolumn name="gridcolumn13">
+                                <wm-composite name="composite10">
+                                    <wm-label class="col-md-3" caption="Directed" name="label10"></wm-label>
+                                    <wm-container class="col-md-9" name="container10">
+                                        <wm-label name="label12_1" caption="" readonlygrid="true"></wm-label>
+                                        <wm-label caption="bind:Variables.graphName.dataSet.directed" readonlygrid="true" name="label16"></wm-label>
+                                    </wm-container>
+                                </wm-composite>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow14">
+                            <wm-gridcolumn name="gridcolumn14">
+                                <wm-composite horizontalalign="left" name="composite11_1">
+                                    <wm-label class="col-md-3" caption="Description" name="label11_1"></wm-label>
+                                    <wm-container class="col-md-9" name="container11">
+                                        <wm-label name="label13_1" caption="bind:Variables.graphName.dataSet.description"></wm-label>
+                                    </wm-container>
+                                </wm-composite>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridcolumn name="gridcolumn15">
+                            <wm-composite name="composite12">
+                                <wm-label class="col-md-3" caption="Number of Nodes" name="label12"></wm-label>
+                                <wm-container class="col-md-9" name="container12_1">
+                                    <wm-label name="label14" caption="bind:Variables.graphName.dataSet.nodes"></wm-label>
+                                </wm-container>
+                            </wm-composite>
+                            <wm-gridcolumn name="gridcolumn16">
+                                <wm-composite name="composite13">
+                                    <wm-label class="col-md-3" caption="Number of Edges" name="label13"></wm-label>
+                                    <wm-container class="col-md-9" name="container13">
+                                        <wm-label name="label15" caption="bind:Variables.graphName.dataSet.edges"></wm-label>
+                                    </wm-container>
+                                </wm-composite>
+                                <wm-composite name="composite10_1">
+                                    <wm-label class="col-md-3" caption="Attributes" name="label17"></wm-label>
+                                    <wm-container class="col-md-9" name="container10_1" backgroundcolor="#ffffff">
+                                        <wm-accordion name="accordion1" closeothers="false">
+                                            <wm-accordionpane name="accordionpane1">
+                                                <wm-accordionheader name="accordionheader1" heading="Node" backgroundcolor="#fff2cc"></wm-accordionheader>
+                                                <wm-accordioncontent name="accordioncontent1" backgroundcolor="#ffffff">
+                                                    <wm-label name="label19" caption="bind:Variables.graphName.dataSet.node_att"></wm-label>
+                                                </wm-accordioncontent>
+                                            </wm-accordionpane>
+                                            <wm-accordionpane name="accordionpane2">
+                                                <wm-accordionheader name="accordionheader2" heading="Edge" backgroundcolor="#fff2cc"></wm-accordionheader>
+                                                <wm-accordioncontent name="accordioncontent2">
+                                                    <wm-label name="label20" caption="bind:Variables.graphName.dataSet.edge_att"></wm-label>
+                                                </wm-accordioncontent>
+                                            </wm-accordionpane>
+                                        </wm-accordion>
+                                    </wm-container>
+                                </wm-composite>
+                            </wm-gridcolumn>
+                        </wm-gridcolumn>
+                    </wm-layoutgrid>
+                    <wm-buttongroup horizontalalign="right" class="form-action col-md-12" name="buttongroup4">
+                        <wm-button caption="Network List" type="button" class="btn-warning" name="button13" iconclass="glyphicon glyphicon-arrow-left" on-click="navigationall" readonlygrid="true"></wm-button>
+                        <wm-button caption="Visualize" type="button" name="button14_2" on-click="iframedialog1.show" iconclass="fa fa-sun-o"></wm-button>
+                        <wm-button caption="Data Explorer" type="submit" class="btn-primary" name="button14" iconclass="glyphicon glyphicon-arrow-right" on-click="navigation3"></wm-button>
+                    </wm-buttongroup>
+                </wm-form>
+            </wm-view>
+            <wm-view name="graph_explore" readonlygrid="true" show="false">
+                <wm-tabs name="tabs2_1" readonlygrid="true" color="#000000">
+                    <wm-tabpane name="tabpane3">
+                        <wm-tabheader name="tabheader3" heading="Query" color="#000000"></wm-tabheader>
+                        <wm-tabcontent name="tabcontent3" readonlygrid="true">
+                            <wm-form class="panel-default" name="form3" whitespace="normal" backgroundcolor="#ffffff" color="#000000">
+                                <wm-layoutgrid name="layoutgrid3">
+                                    <wm-gridrow name="gridrow11">
+                                        <wm-gridcolumn columnwidth="12" name="gridcolumn14_1">
+                                            <wm-label caption="Inputs" fontweight="bold" name="label31"></wm-label>
+                                        </wm-gridcolumn>
+                                    </wm-gridrow>
+                                    <wm-gridrow name="gridrow8">
+                                        <wm-gridcolumn name="gridcolumn10">
+                                            <wm-composite name="composite11_2">
+                                                <wm-label class="col-md-3" caption="Input Query" name="label20_1" width="102"></wm-label>
+                                                <wm-container class="col-md-9" name="container11_1">
+                                                    <wm-text tabindex="1" placeholder="" name="query_text" on-click="query_textClick($event, $scope)"></wm-text>
+                                                </wm-container>
+                                            </wm-composite>
+                                        </wm-gridcolumn>
+                                    </wm-gridrow>
+                                    <wm-gridrow name="gridrow10">
+                                        <wm-gridcolumn name="gridcolumn12_1">
+                                            <wm-composite name="composite14">
+                                                <wm-label class="col-md-3" name="label23" caption="Seed Mode" height="24" width="103"></wm-label>
+                                                <wm-container class="col-md-9" name="container14">
+                                                    <wm-switch datavalue="no" name="seed_mode" dataset="yes, no"></wm-switch>
+                                                </wm-container>
+                                            </wm-composite>
+                                            <wm-composite name="composite17">
+                                                <wm-label class="col-md-3" caption="Result Details" height="24" width="103" name="label27"></wm-label>
+                                                <wm-container class="col-md-9" name="container17">
+                                                    <wm-composite name="composite20">
+                                                        <wm-container class="col-md-9" name="container19">
+                                                            <wm-select name="details" width="100" datavalue="Only IDs" dataset="Only IDs, IDs + Attributes"></wm-select>
+                                                        </wm-container>
+                                                    </wm-composite>
+                                                </wm-container>
+                                            </wm-composite>
+                                            <wm-composite name="composite18">
+                                                <wm-label class="col-md-3" caption="Reuslt Format" height="24" width="103" name="format_label"></wm-label>
+                                                <wm-container class="col-md-9" name="container18">
+                                                    <wm-composite name="composite19">
+                                                        <wm-container class="col-md-9" name="container19_1">
+                                                            <wm-select width="100" datavalue="JSON" dataset="JSON" name="result_format"></wm-select>
+                                                        </wm-container>
+                                                    </wm-composite>
+                                                </wm-container>
+                                            </wm-composite>
+                                        </wm-gridcolumn>
+                                    </wm-gridrow>
+                                </wm-layoutgrid>
+                                <wm-buttongroup horizontalalign="right" class="form-action col-md-12" name="buttongroup3" readonlygrid="true">
+                                    <wm-button caption="Network Infomation" type="button" class="btn-warning" name="button7" iconclass="glyphicon glyphicon-arrow-left" on-click="gotoGraphDetails"></wm-button>
+                                    <wm-button caption="Run" type="submit" class="btn-primary" name="button8" iconclass="fa fa-flash" on-click="button8Click($event, $scope)"></wm-button>
+                                </wm-buttongroup>
+                            </wm-form>
+                            <wm-label name="label24" caption="Query Result" fontweight="bold"></wm-label>
+                            <wm-layoutgrid name="layoutgrid4_1">
+                                <wm-gridrow name="gridrow10_1">
+                                    <wm-gridcolumn columnwidth="1" name="gridcolumn12_2">
+                                        <wm-label name="label25" caption="Coverage %" width="143"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn13_1">
+                                        <wm-progress name="progress1" width="276" datavalue="0"></wm-progress>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                            <wm-textarea name="textarea3" placeholder="" scopedatavalue="json_result" height="293" width="968" readonly="false" autofocus="false" color="#000000"></wm-textarea>
+                        </wm-tabcontent>
+                    </wm-tabpane>
+                    <wm-tabpane name="tabpane4">
+                        <wm-tabheader name="tabheader4" heading="Analyze"></wm-tabheader>
+                        <wm-tabcontent name="tabcontent4">
+                            <wm-label name="label27_1" caption="Workflow Designer" fontweight="bold"></wm-label>
+                            <wm-composite name="composite17_1">
+                                <wm-container class="col-md-9" name="container17_1">
+                                    <wm-button caption="Add Process" type="button" name="button8_1" iconclass="fa fa-plus-circle" on-click="dialog1.show"></wm-button>
+                                    <wm-button caption="Reset Workflow" type="button" name="button9" iconclass="fa fa-minus-circle" on-click="button9Click($event, $scope)"></wm-button>
+                                </wm-container>
+                            </wm-composite>
+                            <wm-grid readonlygrid="false" name="grid3" enablesort="false" showrowindex="false" radioselect="false" multiselect="false" shownavigation="false" insertrow="true" updaterow="true" deleterow="false" dataset="bind:Variables.wf_task.dataSet"
+                            nodatamessage="No process found.">
+                                <wm-grid-column binding="Name" caption="Name" type="string" width="200px" readonly="false" col-class="" col-ng-class="" search-placeholder="Search" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                                <wm-grid-column binding="Description" caption="Description" type="string" width="300px" readonly="false" col-class="" col-ng-class="" search-placeholder="Search" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                                <wm-grid-column binding="Input" caption="Input" type="string" width="250px" readonly="false" col-class="" col-ng-class="" search-placeholder="Search" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                                <wm-grid-column binding="Output" caption="Output" type="string" width="150px" readonly="false" col-class="" col-ng-class="" search-placeholder="Search" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                                <wm-grid-action key="addNewRow" label="New" show="true" class="btn-primary" icon="new" action="addNewRow()" type="button"></wm-grid-action>
+                            </wm-grid>
+                            <wm-form class="panel-default" name="form4_1">
+                                <wm-buttongroup horizontalalign="right" class="form-action col-md-12" name="buttongroup4_1">
+                                    <wm-button caption="Network Infomation" type="button" class="btn-warning" iconclass="glyphicon glyphicon-arrow-left" on-click="gotoGraphDetails" name="button15"></wm-button>
+                                    <wm-button caption="Run" type="submit" class="btn-primary" iconclass="fa fa-flash" on-click="button14_1Click($event, $scope)" name="button14_1"></wm-button>
+                                </wm-buttongroup>
+                            </wm-form>
+                            <wm-label caption="Workflow Result" fontweight="bold" name="label36_3"></wm-label>
+                            <wm-gridrow name="gridrow12_1"></wm-gridrow>
+                            <wm-textarea name="textarea4" width="968" placeholder="" scopedatavalue="json_result_wf" height="293" show="true"></wm-textarea>
+                            <wm-container name="container39_2" horizontalalign="left">
+                                <wm-button caption="Download PNG" type="button" width="118" iconclass="glyphicon glyphicon-download-alt" name="button17" on-click="button17Click($event, $scope)" show="false"></wm-button>
+                                <wm-button caption="Download PDF" type="button" name="button16" width="118" iconclass="glyphicon glyphicon-download-alt" on-click="button16Click($event, $scope)" show="false"></wm-button>
+                                <wm-button caption="Download Data" type="button" width="118" iconclass="glyphicon glyphicon-download-alt" on-click="button16Click($event, $scope)" show="false" name="button17_1"></wm-button>
+                                <wm-container name="container40_1">
+                                    <wm-picture name="plot_result" picturesource="bind:Variables.plot_url.dataSet.url" height="400" show="false" animation="pulse"></wm-picture>
+                                </wm-container>
+                            </wm-container>
+                            <wm-spinner show="false" name="spinner2" caption="Executing..."></wm-spinner>
+                        </wm-tabcontent>
+                    </wm-tabpane>
+                </wm-tabs>
+            </wm-view>
+            <wm-view name="view9" show="false"></wm-view>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+    <wm-view class="dialog-view" name="view5">
+        <wm-confirmdialog name="notificationconfirmdialog" controller="NotificationDialogController" notificationdialog="confirm" message="{{notification.text}}" title="confirm" oktext="{{notification.okButtonText}}" canceltext="{{notification.cancelButtonText}}"
+        on-ok="variableOnOk()" on-cancel="variableOnCancel()" on-close="variableOnClose()" width="251"></wm-confirmdialog>
+    </wm-view>
+    <wm-view class="dialog-view" name="view6">
+        <wm-alertdialog name="notificationalertdialog" controller="NotificationDialogController" notificationdialog="alert" message="{{notification.text}}" title="alert" oktext="{{notification.okButtonText}}" alerttype="{{notification.alerttype}}" on-ok="variableOnOk()"
+        on-close="variableOnClose()" readonlygrid="true"></wm-alertdialog>
+    </wm-view>
+    <wm-view class="dialog-view" name="execute_query_process" show="false">
+        <wm-dialog dialogtype="design-dialog" modal="true" name="dialog1" readonlygrid="true">
+            <wm-dialogheader caption="New Process" iconclass="fa fa-cog" name="dialogheader1"></wm-dialogheader>
+            <wm-dialogcontent name="dialogcontent1" show="true" readonlygrid="true">
+                <wm-form class="app-dialog-form" name="form5">
+                    <wm-composite name="composite28">
+                        <wm-label class="col-md-3" name="label36" width="57" caption="Network"></wm-label>
+                        <wm-container class="col-md-9" name="container24">
+                            <wm-label name="network_name" caption="bind:Variables.graphName.dataSet.name"></wm-label>
+                        </wm-container>
+                    </wm-composite>
+                    <wm-composite name="composite21">
+                        <wm-label class="col-md-3" name="label33" width="76" caption="Process Type"></wm-label>
+                        <wm-container class="col-md-9" name="container20">
+                            <wm-select name="process_type" width="227" on-click="select6Click($event, $scope)" on-change="select6Change($event, $scope)" required="true" scopedataset="process_items" scopedatavalue="process_default"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                    <wm-container name="query_execute_input" show="false" readonlygrid="true">
+                        <wm-composite name="composite27">
+                            <wm-text name="query_input" placeholder="Input Query..." required="true" readonlygrid="true" width="551" height="28"></wm-text>
+                        </wm-composite>
+                        <wm-composite name="composite25">
+                            <wm-label class="col-md-3" caption="Target" width="54" name="label38"></wm-label>
+                            <wm-container class="col-md-9" name="container29">
+                                <wm-select width="84" datavalue="node" dataset="node, edge" name="target_type_q" readonlygrid="true"></wm-select>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-container>
+                    <wm-container show="false" name="network_attribute_input">
+                        <wm-composite name="composite23">
+                            <wm-label class="col-md-3" caption="Target" width="54" name="label36_1"></wm-label>
+                            <wm-container class="col-md-9" name="container27">
+                                <wm-select width="84" datavalue="node" dataset="node, edge" name="target_type" on-change="select8Change($event, $scope)"></wm-select>
+                            </wm-container>
+                        </wm-composite>
+                        <wm-composite name="composite24">
+                            <wm-label class="col-md-3" name="label37" width="56" caption="Attribute"></wm-label>
+                            <wm-container class="col-md-9" name="container28">
+                                <wm-select name="attribute_name" width="142" readonlygrid="true" dataset="bind:Variables.GetattributeInvoke.dataSet.datavalue"></wm-select>
+                            </wm-container>
+                        </wm-composite>
+                        <wm-composite name="composite42_1">
+                            <wm-label class="col-md-3" width="109" caption="Condition (optional)" name="label52_1"></wm-label>
+                            <wm-container class="col-md-9" name="container48_1">
+                                <wm-text name="text14" width="396" placeholder=""></wm-text>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-container>
+                    <wm-container show="false" name="query_attribute_input" readonlygrid="true">
+                        <wm-composite name="composite_99">
+                            <wm-label class="col-md-3" width="56" caption="Attribute" name="label35"></wm-label>
+                            <wm-container class="col-md-9" name="container26">
+                                <wm-select width="142" name="attribute_name2" dataset="bind:Variables.GetattributeInvoke.dataSet.datavalue"></wm-select>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-container>
+                    <wm-container show="false" name="stat_operation_input">
+                        <wm-composite name="composite25_1">
+                            <wm-label class="col-md-3" width="56" caption="Operation" name="label36_2"></wm-label>
+                            <wm-container class="col-md-9" name="container28_1">
+                                <wm-select width="142" name="stat_op_type" datavalue="Sum" dataset="Sum, Min, Max, Product, Median, Average, Standard Deviation, Variance, Count"></wm-select>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-container>
+                </wm-form>
+                <wm-container show="false" name="plot_operation">
+                    <wm-composite name="composite26" show="true">
+                        <wm-label class="col-md-3" width="56" caption="Type" name="label39"></wm-label>
+                        <wm-container class="col-md-9" name="container30">
+                            <wm-select width="216" datavalue="Degree Distribution" dataset="Degree Distribution,Clustering Coefficient Distribution,Variable(s) Value,K-core Distribution" name="plot_type" on-change="plot_typeChange($event, $scope)"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                    <wm-panel class="panel-default" collapsible="true" showheader="true" name="panel2" title="Plot Settings" show="true" expanded="true" closable="false">
+                        <wm-composite name="composite27_1">
+                            <wm-label class="col-md-3" name="label40" width="62" caption="X-Label"></wm-label>
+                            <wm-container class="col-md-9" name="container31">
+                                <wm-text name="xlabel" height="24" width="146" placeholder=""></wm-text>
+                            </wm-container>
+                        </wm-composite>
+                        <wm-composite name="composite29">
+                            <wm-label class="col-md-3" width="62" caption="Y-Label" name="label42"></wm-label>
+                            <wm-container class="col-md-9" name="container33">
+                                <wm-text height="24" width="146" name="ylabel" placeholder=""></wm-text>
+                            </wm-container>
+                        </wm-composite>
+                        <wm-composite name="composite30">
+                            <wm-label class="col-md-3" name="label43" caption="Axis Font Size" width="85"></wm-label>
+                            <wm-container class="col-md-9" name="container34">
+                                <wm-slider name="xfont" height="35" width="120" minvalue="5" maxvalue="40" step="5" datavalue="30"></wm-slider>
+                            </wm-container>
+                        </wm-composite>
+                        <wm-composite name="composite31">
+                            <wm-label class="col-md-3" caption="Tick Font Size" width="85" name="label44"></wm-label>
+                            <wm-container class="col-md-9" name="container35">
+                                <wm-slider height="35" width="120" minvalue="5" maxvalue="40" step="5" datavalue="30" name="tfont"></wm-slider>
+                            </wm-container>
+                        </wm-composite>
+                        <wm-composite name="composite35">
+                            <wm-label class="col-md-3" width="85" caption="Marker Type" name="label48"></wm-label>
+                            <wm-container class="col-md-9" name="container39">
+                                <wm-text height="24" width="47" placeholder="" name="mtype"></wm-text>
+                            </wm-container>
+                        </wm-composite>
+                        <wm-composite name="composite35_1">
+                            <wm-label class="col-md-3" width="85" caption="Marker Color" name="label47"></wm-label>
+                            <wm-container class="col-md-9" name="container39_1">
+                                <wm-text height="24" width="48" placeholder="" name="mcolor"></wm-text>
+                            </wm-container>
+                        </wm-composite>
+                        <wm-composite name="composite36">
+                            <wm-label class="col-md-3" caption="Marker Size" width="85" name="label49"></wm-label>
+                            <wm-container class="col-md-9" name="container40">
+                                <wm-slider height="35" width="120" minvalue="5" maxvalue="40" step="5" datavalue="30" name="msize"></wm-slider>
+                            </wm-container>
+                        </wm-composite>
+                        <wm-composite name="num_bins" show="false">
+                            <wm-label class="col-md-3" width="88" caption="Number of Bins" name="label80"></wm-label>
+                            <wm-container class="col-md-9" name="container75">
+                                <wm-text height="24" width="48" placeholder="" name="nbin"></wm-text>
+                            </wm-container>
+                        </wm-composite>
+                        <wm-composite name="bcolors" show="false">
+                            <wm-label class="col-md-3" width="96" caption="Bar Color(s)" name="b_color"></wm-label>
+                            <wm-container class="col-md-9" name="container47">
+                                <wm-text height="24" width="110" placeholder="" name="text16"></wm-text>
+                            </wm-container>
+                        </wm-composite>
+                        <wm-composite show="true" readonlygrid="true" name="l_style">
+                            <wm-label class="col-md-3" width="82" caption="Line Style" name="label50_1"></wm-label>
+                            <wm-container class="col-md-9" name="container46">
+                                <wm-composite name="composite42">
+                                    <wm-select name="lstyle" height="26" width="51" dataset="-,--,_"></wm-select>
+                                </wm-composite>
+                            </wm-container>
+                        </wm-composite>
+                        <wm-composite show="true" readonlygrid="true" name="l_width">
+                            <wm-label class="col-md-3" width="87" caption="Line Width" name="label52"></wm-label>
+                            <wm-container class="col-md-9" name="container48">
+                                <wm-slider height="35" width="120" minvalue="1" maxvalue="40" step="2" datavalue="5" name="lwidth"></wm-slider>
+                            </wm-container>
+                        </wm-composite>
+                        <wm-composite name="composite37">
+                            <wm-label class="col-md-3" width="63" caption="Plot Title" name="label50"></wm-label>
+                            <wm-container class="col-md-9" name="container41">
+                                <wm-text height="24" width="141" placeholder="" name="ptitle"></wm-text>
+                            </wm-container>
+                        </wm-composite>
+                        <wm-composite name="vnames" show="false" readonlygrid="true">
+                            <wm-label class="col-md-3" width="96" caption="Variable Name(s)" name="var_name"></wm-label>
+                            <wm-container class="col-md-9" name="container44">
+                                <wm-text height="24" width="383" placeholder="" name="v_name"></wm-text>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-panel>
+                </wm-container>
+                <wm-container show="false" name="save_variable">
+                    <wm-composite name="variable_name" show="true">
+                        <wm-label class="col-md-3" width="86" caption="Variable Name" name="label49_1"></wm-label>
+                        <wm-container class="col-md-9" name="container45">
+                            <wm-text name="vname" width="180" placeholder=""></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-container>
+            </wm-dialogcontent>
+            <wm-dialogactions name="dialogactions1">
+                <wm-button class="btn-secondary" caption="Cancel" on-click="closeDialog()" name="button12" iconclass="glyphicon glyphicon-remove-circle"></wm-button>
+                <wm-button class="btn-primary" caption="Add" name="button13_1" iconclass="glyphicon glyphicon-plus-sign" on-click="button13_1Click($event, $scope)" readonlygrid="true"></wm-button>
+            </wm-dialogactions>
+        </wm-dialog>
+    </wm-view>
+    <wm-view class="dialog-view" name="view10" show="false">
+        <wm-iframedialog name="iframedialog1" url="bind:&quot;http://edisondev.vbi.vt.edu:8080/netviewer/index.html#&quot;+Variables.graphName.dataSet.name+&quot;.gexf&quot;" width="860" height="750" readonlygrid="true" title="Network Visualization" closable="true"
+        animation="pulse" iconclass="fa fa-sun-o"></wm-iframedialog>
+    </wm-view>
+</wm-page>

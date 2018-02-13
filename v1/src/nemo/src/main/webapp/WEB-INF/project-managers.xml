@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd" xmlns="http://www.springframework.org/schema/beans" xmlns:security="http://www.springframework.org/schema/security" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <bean class="com.wavemaker.runtime.service.TypeManager" parent="typeManagerBase" scope="singleton" id="typeManager">
+        <property name="types">
+            <map merge="true">
+                <entry key="addnetwork">
+                    <list>
+                        <value>addnetwork.RootResponse</value>
+                    </list>
+                </entry>
+                <entry key="executewf">
+                    <list>
+                        <value>executewf.RootResponse</value>
+                    </list>
+                </entry>
+                <entry key="getattribute">
+                    <list>
+                        <value>getattribute.RootResponse</value>
+                    </list>
+                </entry>
+                <entry key="graphInfo">
+                    <list>
+                        <value>graphInfo.edge_attributes</value>
+                        <value>graphInfo.RootResponse</value>
+                        <value>graphInfo.RootResponseROOTEntryItem</value>
+                        <value>graphInfo.node_attributes</value>
+                    </list>
+                </entry>
+                <entry key="graphfilter">
+                    <list>
+                        <value>graphfilter.edge_attributes</value>
+                        <value>graphfilter.RootResponse</value>
+                        <value>graphfilter.node_attributes</value>
+                        <value>graphfilter.RootResponseROOTEntryItem</value>
+                    </list>
+                </entry>
+                <entry key="graphinfo2">
+                    <list>
+                        <value>graphinfo2.node_attributes</value>
+                        <value>graphinfo2.edge_attributes</value>
+                        <value>graphinfo2.RootResponse</value>
+                        <value>graphinfo2.RootResponseROOTEntryItem</value>
+                    </list>
+                </entry>
+                <entry key="graphquery">
+                    <list>
+                        <value>graphquery.RootResponse</value>
+                        <value>graphquery.result</value>
+                        <value>graphquery.node_setsEntryItem</value>
+                        <value>graphquery.nodesEntryItem</value>
+                    </list>
+                </entry>
+                <entry key="secure">
+                    <list/>
+                </entry>
+                <entry key="securityService">
+                    <list>
+                        <value>com.wavemaker.runtime.security.WMCurrentUser</value>
+                    </list>
+                </entry>
+            </map>
+        </property>
+    </bean>
+</beans>

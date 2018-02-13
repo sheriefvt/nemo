@@ -1,0 +1,482 @@
+{
+	"goToPage-Main": {
+		"name": "goToPage-Main",
+		"owner": "App",
+		"operation": "gotoPage",
+		"pageName": "Main",
+		"dataBinding": {},
+		"category": "wm.NavigationVariable",
+		"_id": "wm-goToPage-Main-wm.NavigationVariable1389180517517"
+	},
+	"supportedLocale": {
+		"name": "supportedLocale",
+		"type": "string",
+		"isList": false,
+		"owner": "App",
+		"dataSet": {
+			"en": "English"
+		},
+		"dataBinding": [
+			{
+				"name": "dataSet",
+				"type": "object",
+				"fields": [
+					{
+						"name": "dataValue",
+						"type": "string"
+					}
+				]
+			}
+		],
+		"saveInPhonegap": false,
+		"category": "wm.Variable",
+		"_id": "wm-supportedLocale-wm.Variable1402640443182"
+	},
+	"loginVariable": {
+		"name": "loginVariable",
+		"type": "string",
+		"owner": "App",
+		"dataSet": {
+			"username": "",
+			"password": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "object",
+				"fields": [
+					{
+						"name": "username",
+						"type": "string"
+					},
+					{
+						"name": "password",
+						"type": "string"
+					}
+				]
+			}
+		],
+		"saveInPhonegap": false,
+		"startUpdate": false,
+		"autoUpdate": false,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"onError": "Javascript",
+		"useDefaultSuccessHandler": false,
+		"category": "wm.LoginVariable",
+		"_id": "wm-loginVariable-wm.LoginVariable-1456863161564"
+	},
+	"logoutVariable": {
+		"name": "logoutVariable",
+		"type": "string",
+		"owner": "App",
+		"saveInPhonegap": false,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"redirectTo": "Login",
+		"useDefaultSuccessHandler": true,
+		"category": "wm.LogoutVariable",
+		"_id": "wm-logoutVariable-wm.LogoutVariable-1456863161565"
+	},
+	"loggedInUser": {
+		"name": "loggedInUser",
+		"type": "string",
+		"isList": false,
+		"owner": "App",
+		"dataSet": {
+			"name": "",
+			"id": "",
+			"tenantId": "",
+			"isAuthenticated": false,
+			"isSecurityEnabled": true,
+			"roles": []
+		},
+		"dataBinding": [
+			{
+				"name": "dataSet",
+				"type": "object",
+				"fields": [
+					{
+						"name": "dataValue",
+						"type": "string"
+					}
+				]
+			}
+		],
+		"saveInPhonegap": false,
+		"category": "wm.Variable",
+		"_id": "wm-loggedInUser-wm.Variable-1456863161566"
+	},
+	"navigation2": {
+		"name": "navigation2",
+		"owner": "App",
+		"operation": "gotoView",
+		"pageName": "Main",
+		"viewName": "graph_details",
+		"dataBinding": {
+			"pageName": "",
+			"viewName": ""
+		},
+		"category": "wm.NavigationVariable",
+		"_id": "wm-navigation2-wm.NavigationVariable-1457289490065"
+	},
+	"navigationall": {
+		"name": "navigationall",
+		"owner": "App",
+		"operation": "gotoView",
+		"pageName": "Main",
+		"viewName": "view_all",
+		"dataBinding": {
+			"pageName": "",
+			"viewName": ""
+		},
+		"category": "wm.NavigationVariable",
+		"_id": "wm-navigationall-wm.NavigationVariable-1457289511481"
+	},
+	"navigation1": {
+		"name": "navigation1",
+		"owner": "App",
+		"operation": "gotoView",
+		"pageName": "Main",
+		"viewName": "view1",
+		"dataBinding": {
+			"pageName": "",
+			"viewName": ""
+		},
+		"category": "wm.NavigationVariable",
+		"_id": "wm-navigation1-navigationVariable3-wm.NavigationVariable-1457046841297"
+	},
+	"navigation3": {
+		"name": "navigation3",
+		"owner": "App",
+		"operation": "gotoView",
+		"pageName": "Main",
+		"viewName": "graph_explore",
+		"dataBinding": {
+			"pageName": "",
+			"viewName": ""
+		},
+		"category": "wm.NavigationVariable",
+		"_id": "wm-navigation3-navigationVariable4-wm.NavigationVariable-1457047301135"
+	},
+	"GraphInfoInvoke": {
+		"name": "GraphInfoInvoke",
+		"type": "graphInfo.RootResponseROOTEntryItem",
+		"isList": false,
+		"owner": "App",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "object",
+				"fields": [
+					{
+						"name": "user",
+						"value": "no",
+						"type": "java.lang.String"
+					}
+				]
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"service": "graphInfo",
+		"operation": "invoke",
+		"operationType": null,
+		"startUpdate": true,
+		"autoUpdate": true,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"serviceType": "RestService",
+		"category": "wm.ServiceVariable",
+		"isDefault": true,
+		"wmServiceOperationInfo": {
+			"httpMethod": "GET",
+			"name": "invoke",
+			"parameters": [
+				{
+					"name": "user",
+					"parameterType": "QUERY"
+				}
+			],
+			"relativePath": "/graphInfo/invoke"
+		},
+		"_id": "wm-GraphInfoInvoke-wm.ServiceVariable-1458939749404"
+	},
+	"imgname": {
+		"name": "imgname",
+		"type": "string",
+		"isList": false,
+		"owner": "App",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataSet",
+				"fields": [
+					{
+						"name": "dataValue",
+						"type": "string"
+					}
+				],
+				"type": "object",
+				"isList": false
+			}
+		],
+		"saveInPhonegap": false,
+		"category": "wm.Variable",
+		"_id": "wm-imgname-wm.Variable-1459046640880"
+	},
+	"Graphinfo2Invoke": {
+		"name": "Graphinfo2Invoke",
+		"type": "graphinfo2.RootResponseROOTEntryItem",
+		"isList": false,
+		"owner": "App",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "object",
+				"fields": [
+					{
+						"name": "user",
+						"value": "bind:Variables.loggedInUser.dataSet.name",
+						"type": "java.lang.String"
+					}
+				]
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"service": "graphinfo2",
+		"operation": "invoke",
+		"operationType": null,
+		"startUpdate": true,
+		"autoUpdate": true,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"serviceType": "RestService",
+		"category": "wm.ServiceVariable",
+		"isDefault": true,
+		"wmServiceOperationInfo": {
+			"httpMethod": "GET",
+			"name": "invoke",
+			"parameters": [
+				{
+					"name": "user",
+					"parameterType": "QUERY"
+				}
+			],
+			"relativePath": "/graphinfo2/invoke"
+		},
+		"_id": "wm-Graphinfo2Invoke-wm.ServiceVariable-1459273401289"
+	},
+	"gotoGraphDetails": {
+		"name": "gotoGraphDetails",
+		"owner": "App",
+		"operation": "gotoView",
+		"pageName": "Main",
+		"viewName": "graph_details",
+		"dataBinding": {
+			"pageName": "",
+			"viewName": ""
+		},
+		"category": "wm.NavigationVariable",
+		"_id": "wm-gotoGraphDetails-wm.NavigationVariable-1459288081672"
+	},
+	"GraphfilterInvoke": {
+		"name": "GraphfilterInvoke",
+		"type": "graphfilter.RootResponseROOTEntryItem",
+		"isList": false,
+		"owner": "App",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "object",
+				"fields": [
+					{
+						"name": "attribute",
+						"value": "name",
+						"type": "java.lang.String"
+					},
+					{
+						"name": "operator",
+						"value": "=",
+						"type": "java.lang.String"
+					},
+					{
+						"name": "rvalue",
+						"value": "bind:Widgets.label11_2.caption",
+						"type": "java.lang.String"
+					}
+				]
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"service": "graphfilter",
+		"operation": "invoke",
+		"operationType": null,
+		"startUpdate": true,
+		"autoUpdate": true,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": true,
+		"dataField": "--none--",
+		"serviceType": "RestService",
+		"category": "wm.ServiceVariable",
+		"isDefault": true,
+		"wmServiceOperationInfo": {
+			"httpMethod": "GET",
+			"name": "invoke",
+			"parameters": [
+				{
+					"name": "attribute",
+					"parameterType": "QUERY"
+				},
+				{
+					"name": "rvalue",
+					"parameterType": "QUERY"
+				},
+				{
+					"name": "operator",
+					"parameterType": "QUERY"
+				}
+			],
+			"relativePath": "/graphfilter/invoke"
+		},
+		"_id": "wm-GraphfilterInvoke-wm.ServiceVariable-1459283145590"
+	},
+	"gotographexplore": {
+		"name": "gotographexplore",
+		"owner": "App",
+		"operation": "gotoView",
+		"pageName": "Main",
+		"viewName": "graph_explore",
+		"tabName": "tabpane4",
+		"dataBinding": {
+			"pageName": "",
+			"viewName": ""
+		},
+		"category": "wm.NavigationVariable",
+		"_id": "wm-gotographexplore-navigationVariable1-wm.NavigationVariable-1461201751163"
+	},
+	"executewfInvoke": {
+		"name": "executewfInvoke",
+		"type": "executewf.RootResponse",
+		"isList": false,
+		"owner": "App",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "object",
+				"fields": [
+					{
+						"name": "wf",
+						"value": "",
+						"type": "java.lang.String"
+					},
+					{
+						"name": "input",
+						"value": "",
+						"type": "java.lang.String"
+					}
+				]
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"service": "executewf",
+		"operation": "invoke",
+		"operationType": null,
+		"startUpdate": false,
+		"autoUpdate": true,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"serviceType": "RestService",
+		"category": "wm.ServiceVariable",
+		"isDefault": true,
+		"wmServiceOperationInfo": {
+			"httpMethod": "GET",
+			"name": "invoke",
+			"parameters": [
+				{
+					"name": "input",
+					"parameterType": "QUERY"
+				},
+				{
+					"name": "wf",
+					"parameterType": "QUERY"
+				}
+			],
+			"relativePath": "/executewf/invoke"
+		},
+		"_id": "wm-executewfInvoke-ExecutewfInvoke-wm.ServiceVariable-1461277925261"
+	},
+	"AddnetworkInvoke": {
+		"name": "AddnetworkInvoke",
+		"type": "addnetwork.RootResponse",
+		"isList": false,
+		"owner": "App",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "object",
+				"fields": [
+					{
+						"name": "name",
+						"value": "sample",
+						"type": "java.lang.String"
+					}
+				]
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"service": "addnetwork",
+		"operation": "invoke",
+		"operationType": null,
+		"startUpdate": false,
+		"autoUpdate": true,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"serviceType": "RestService",
+		"category": "wm.ServiceVariable",
+		"isDefault": true,
+		"wmServiceOperationInfo": {
+			"httpMethod": "GET",
+			"name": "invoke",
+			"parameters": [
+				{
+					"name": "name",
+					"parameterType": "QUERY"
+				}
+			],
+			"relativePath": "/addnetwork/invoke"
+		},
+		"_id": "wm-AddnetworkInvoke-wm.ServiceVariable-1462321610591"
+	}
+}

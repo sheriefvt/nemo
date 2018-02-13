@@ -1,0 +1,16 @@
+{
+	"methods": [{
+		"operationType": null,
+		"name": "invoke",
+		"parameters": [{
+			"name": "input",
+			"type": "java.lang.String"
+		}, {
+			"name": "wf",
+			"type": "java.lang.String"
+		}],
+		"returnType": "executewf.RootResponse"
+	}],
+	"serviceURL": "executewf.json",
+	"serviceType": "JSON-RPC"
+}

@@ -1,0 +1,16 @@
+<wm-partial data-ng-controller="leftnavPageController" name="leftnav" type="left-panel">
+    <wm-nav name="leftnavigation" type="pills" layout="stacked">
+        <wm-nav-item name="list_latestUpdate">
+            <wm-anchor caption="New Network" name="newButton" iconclass="glyphicon glyphicon-new-window" on-click="navigation1" tabindex="4"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="list_inTheNews">
+            <wm-anchor caption="All Networks" name="listButton" iconclass="glyphicon glyphicon-list-alt" on-click="navigationall" tabindex="1"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="list_share">
+            <wm-anchor caption="About" name="aboutButton" iconclass="glyphicon glyphicon-info-sign" tabindex="2"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="list_help">
+            <wm-anchor caption="Feedback" name="supportButton" iconclass="glyphicon glyphicon-envelope" show="true" on-click="supportButtonClick($event, $scope)" tabindex="3"></wm-anchor>
+        </wm-nav-item>
+    </wm-nav>
+</wm-partial>

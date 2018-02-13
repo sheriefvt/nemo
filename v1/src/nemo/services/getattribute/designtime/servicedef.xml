@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" id="getattribute" CRUDService="false" type="RestService" springFile="getattribute.spring.xml">
+    <operation name="invoke">
+        <parameter name="target" typeRef="java.lang.String" isList="false"/>
+        <parameter name="network" typeRef="java.lang.String" isList="false"/>
+        <return typeRef="getattribute.RootResponse" isList="false"/>
+    </operation>
+    <dataobjects>
+        <dataobject javaType="getattribute.RootResponse" name="RootResponse" supportsQuickData="false">
+            <element name="datavalue" typeRef="java.lang.String" isList="true" allowNull="false"/>
+        </dataobject>
+    </dataobjects>
+</service>

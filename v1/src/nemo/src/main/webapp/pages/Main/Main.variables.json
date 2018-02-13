@@ -1,0 +1,539 @@
+{
+	"notificationVariable1": {
+		"name": "notificationVariable1",
+		"owner": "Page",
+		"operation": "confirm",
+		"onOk": "BiSim_engineInvoke",
+		"dataBinding": {
+			"text": "bind:Widgets.grid2.selecteditem.name",
+			"okButtonText": "Ok",
+			"cancelButtonText": "Cancel"
+		},
+		"category": "wm.NotificationVariable",
+		"_id": "wm-notificationVariable1-wm.NotificationVariable-1457390764622"
+	},
+	"notificationVariable2": {
+		"name": "notificationVariable2",
+		"owner": "Page",
+		"operation": "alert",
+		"dataBinding": {
+			"text": "bind:Widgets.grid2.selecteditem.name",
+			"okButtonText": "",
+			"alerttype": ""
+		},
+		"category": "wm.NotificationVariable",
+		"_id": "wm-notificationVariable2-wm.NotificationVariable-1458941569910"
+	},
+	"graphName": {
+		"name": "graphName",
+		"type": "string",
+		"isList": false,
+		"owner": "Page",
+		"dataSet": {
+			"name": "",
+			"directed": "",
+			"description": "",
+			"nodes": "",
+			"edges": "",
+			"node_att": "",
+			"edge_att": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataSet",
+				"fields": [
+					{
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"name": "directed",
+						"type": "string"
+					},
+					{
+						"name": "description",
+						"type": "string"
+					},
+					{
+						"name": "nodes",
+						"type": "string"
+					},
+					{
+						"name": "edges",
+						"type": "string"
+					},
+					{
+						"name": "node_att",
+						"type": "string"
+					},
+					{
+						"name": "edge_att",
+						"type": "string"
+					}
+				],
+				"type": "object",
+				"isList": false
+			}
+		],
+		"saveInPhonegap": false,
+		"category": "wm.Variable",
+		"_id": "wm-graphName-staticVariable1-wm.Variable-1459046883995"
+	},
+	"example": {
+		"name": "example",
+		"type": "string",
+		"isList": true,
+		"owner": "Page",
+		"dataSet": [
+			{
+				"label": "Node",
+				"icon": "fa fa-circle-o",
+				"children": []
+			},
+			{
+				"label": "Edge",
+				"icon": "fa fa-arrows-h",
+				"children": []
+			}
+		],
+		"dataBinding": [
+			{
+				"name": "dataSet",
+				"fields": [
+					{
+						"name": "label",
+						"type": "string"
+					},
+					{
+						"name": "icon",
+						"type": "string"
+					},
+					{
+						"name": "children",
+						"type": "string"
+					}
+				],
+				"type": "object",
+				"isList": true
+			}
+		],
+		"saveInPhonegap": false,
+		"category": "wm.Variable",
+		"_id": "wm-example-wm.Variable-1459451930709"
+	},
+	"query_input": {
+		"name": "query_input",
+		"type": "string",
+		"isList": false,
+		"owner": "Page",
+		"dataSet": {
+			"content": "",
+			"graph": "",
+			"validate": "",
+			"view": "",
+			"nruns": "",
+			"memo": "",
+			"details": "",
+			"session": "",
+			"csvf": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataSet",
+				"fields": [
+					{
+						"name": "content",
+						"type": "string"
+					},
+					{
+						"name": "graph",
+						"type": "string"
+					},
+					{
+						"name": "validate",
+						"type": "string"
+					},
+					{
+						"name": "view",
+						"type": "string"
+					},
+					{
+						"name": "nruns",
+						"type": "string"
+					},
+					{
+						"name": "memo",
+						"type": "string"
+					},
+					{
+						"name": "details",
+						"type": "string"
+					},
+					{
+						"name": "session",
+						"type": "string"
+					},
+					{
+						"name": "csvf",
+						"type": "string"
+					}
+				],
+				"type": "object",
+				"isList": false
+			}
+		],
+		"saveInPhonegap": false,
+		"category": "wm.Variable",
+		"_id": "wm-query_input-wm.Variable-1459709238484"
+	},
+	"queryjsonResult": {
+		"name": "queryjsonResult",
+		"type": "string",
+		"isList": false,
+		"owner": "Page",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataSet",
+				"fields": [
+					{
+						"name": "dataValue",
+						"type": "string"
+					}
+				],
+				"type": "object",
+				"isList": false
+			}
+		],
+		"saveInPhonegap": false,
+		"category": "wm.Variable",
+		"_id": "wm-queryjsonResult-wm.Variable-1459721635861"
+	},
+	"GraphqueryInvoke": {
+		"name": "GraphqueryInvoke",
+		"type": "graphquery.RootResponse",
+		"isList": false,
+		"owner": "Page",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "object",
+				"fields": [
+					{
+						"name": "content",
+						"value": "bind:Variables.query_input.dataSet.content",
+						"type": "java.lang.String"
+					},
+					{
+						"name": "graph",
+						"value": "bind:Variables.query_input.dataSet.graph",
+						"type": "java.lang.String"
+					},
+					{
+						"name": "validate",
+						"value": "bind:Variables.query_input.dataSet.validate",
+						"type": "java.lang.String"
+					},
+					{
+						"name": "view",
+						"value": "bind:Variables.query_input.dataSet.view",
+						"type": "java.lang.String"
+					},
+					{
+						"name": "nruns",
+						"value": "bind:Variables.query_input.dataSet.nruns",
+						"type": "java.lang.String"
+					},
+					{
+						"name": "details",
+						"value": "bind:Variables.query_input.dataSet.details",
+						"type": "java.lang.String"
+					},
+					{
+						"name": "memo",
+						"value": "bind:Variables.query_input.dataSet.memo",
+						"type": "java.lang.String"
+					},
+					{
+						"name": "session",
+						"value": "bind:Variables.query_input.dataSet.session",
+						"type": "java.lang.String"
+					},
+					{
+						"name": "csvf",
+						"type": "string",
+						"isList": false,
+						"value": "bind:Variables.query_input.dataSet.csvf"
+					}
+				]
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"service": "graphquery",
+		"operation": "invoke",
+		"operationType": null,
+		"startUpdate": false,
+		"autoUpdate": true,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"onCanUpdate": "Javascript",
+		"onBeforeUpdate": "Javascript",
+		"onResult": "Javascript",
+		"onSuccess": "Javascript",
+		"serviceType": "RestService",
+		"category": "wm.ServiceVariable",
+		"isDefault": true,
+		"wmServiceOperationInfo": {
+			"httpMethod": "GET",
+			"name": "invoke",
+			"parameters": [
+				{
+					"name": "content",
+					"parameterType": "QUERY"
+				},
+				{
+					"name": "graph",
+					"parameterType": "QUERY"
+				},
+				{
+					"name": "memo",
+					"parameterType": "QUERY"
+				},
+				{
+					"name": "details",
+					"parameterType": "QUERY"
+				},
+				{
+					"name": "session",
+					"parameterType": "QUERY"
+				},
+				{
+					"name": "view",
+					"parameterType": "QUERY"
+				},
+				{
+					"name": "nruns",
+					"parameterType": "QUERY"
+				},
+				{
+					"name": "validate",
+					"parameterType": "QUERY"
+				},
+				{
+					"name": "csvf",
+					"parameterType": "QUERY"
+				}
+			],
+			"relativePath": "/graphquery/invoke"
+		},
+		"_id": "wm-GraphqueryInvoke-wm.ServiceVariable-1459708896597"
+	},
+	"wf_task": {
+		"name": "wf_task",
+		"type": "string",
+		"isList": true,
+		"owner": "Page",
+		"dataSet": [],
+		"dataBinding": [
+			{
+				"name": "dataSet",
+				"fields": [
+					{
+						"name": "Name",
+						"type": "string"
+					},
+					{
+						"name": "Description",
+						"type": "string"
+					},
+					{
+						"name": "Input",
+						"type": "string"
+					},
+					{
+						"name": "Output",
+						"type": "string"
+					}
+				],
+				"type": "object",
+				"isList": true
+			}
+		],
+		"saveInPhonegap": false,
+		"category": "wm.Variable",
+		"_id": "wm-wf_task-wm.Variable-1461168082180"
+	},
+	"GetattributeInvoke": {
+		"name": "GetattributeInvoke",
+		"type": "getattribute.RootResponse",
+		"isList": false,
+		"owner": "Page",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "object",
+				"fields": [
+					{
+						"name": "network",
+						"value": "bind:Widgets.network_name.caption",
+						"type": "java.lang.String"
+					},
+					{
+						"name": "target",
+						"value": "bind:Widgets.target_type.datavalue",
+						"type": "java.lang.String"
+					}
+				]
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"service": "getattribute",
+		"operation": "invoke",
+		"operationType": null,
+		"startUpdate": false,
+		"autoUpdate": true,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"onBeforeUpdate": "Javascript",
+		"serviceType": "RestService",
+		"category": "wm.ServiceVariable",
+		"isDefault": true,
+		"wmServiceOperationInfo": {
+			"httpMethod": "GET",
+			"name": "invoke",
+			"parameters": [
+				{
+					"name": "target",
+					"parameterType": "QUERY"
+				},
+				{
+					"name": "network",
+					"parameterType": "QUERY"
+				}
+			],
+			"relativePath": "/getattribute/invoke"
+		},
+		"_id": "wm-GetattributeInvoke-wm.ServiceVariable-1461194030689"
+	},
+	"executewfInvoke": {
+		"name": "executewfInvoke",
+		"type": "executewf.RootResponse",
+		"isList": false,
+		"owner": "Page",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "object",
+				"fields": [
+					{
+						"name": "wf",
+						"value": "",
+						"type": "java.lang.String"
+					},
+					{
+						"name": "input",
+						"value": "",
+						"type": "java.lang.String"
+					}
+				]
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"service": "executewf",
+		"operation": "invoke",
+		"operationType": null,
+		"startUpdate": false,
+		"autoUpdate": true,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"onBeforeUpdate": "Javascript",
+		"serviceType": "RestService",
+		"category": "wm.ServiceVariable",
+		"isDefault": true,
+		"wmServiceOperationInfo": {
+			"httpMethod": "GET",
+			"name": "invoke",
+			"parameters": [
+				{
+					"name": "input",
+					"parameterType": "QUERY"
+				},
+				{
+					"name": "wf",
+					"parameterType": "QUERY"
+				}
+			],
+			"relativePath": "/executewf/invoke"
+		},
+		"_id": "wm-executewfInvoke-ExecutewfInvoke-wm.ServiceVariable-1461277925261"
+	},
+	"plot_url": {
+		"name": "plot_url",
+		"type": "string",
+		"isList": false,
+		"owner": "Page",
+		"dataSet": {
+			"url": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataSet",
+				"fields": [
+					{
+						"name": "url",
+						"type": "string"
+					}
+				],
+				"type": "object",
+				"isList": false
+			}
+		],
+		"saveInPhonegap": false,
+		"category": "wm.Variable",
+		"_id": "wm-plot_url-wm.Variable-1461530464604"
+	},
+	"net_viz": {
+		"name": "net_viz",
+		"type": "string",
+		"isList": false,
+		"owner": "Page",
+		"dataSet": {
+			"url": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataSet",
+				"type": "object",
+				"fields": [
+					{
+						"name": "dataValue",
+						"type": "string"
+					}
+				]
+			}
+		],
+		"saveInPhonegap": false,
+		"category": "wm.Variable",
+		"_id": "wm-net_viz-wm.Variable-1461853398019"
+	}
+}

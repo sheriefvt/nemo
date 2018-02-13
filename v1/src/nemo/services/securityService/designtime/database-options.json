@@ -1,0 +1,1 @@
+{"modelName":"secure","entityName":"User","tableName":"user","unamePropertyName":"username","unameColumnName":"USERNAME","uidPropertyName":"ID","uidColumnName":"ID","pwPropertyName":"password","pwColumnName":"PASSWORD","rolePropertyName":"role","roleColumnName":"ROLE","useRolesQuery":false,"rolesByUsernameQuery":"","tenantIdField":null,"defTenantId":0,"tenantIdPropertyName":null}

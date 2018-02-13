@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" id="graphfilter" CRUDService="false" type="RestService" springFile="graphfilter.spring.xml">
+    <operation name="invoke">
+        <parameter name="attribute" typeRef="java.lang.String" isList="false"/>
+        <parameter name="rvalue" typeRef="java.lang.String" isList="false"/>
+        <parameter name="operator" typeRef="java.lang.String" isList="false"/>
+        <return typeRef="graphfilter.RootResponseROOTEntryItem" isList="true"/>
+    </operation>
+    <dataobjects>
+        <dataobject javaType="graphfilter.edge_attributes" name="edge_attributes" supportsQuickData="false">
+            <element name="degree_product" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="betweenness_centrality" typeRef="java.lang.String" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="graphfilter.RootResponse" name="RootResponse" supportsQuickData="false">
+            <element name="RootResponseROOT" typeRef="graphfilter.RootResponseROOTEntryItem" isList="true" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="graphfilter.node_attributes" name="node_attributes" supportsQuickData="false">
+            <element name="id" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="degree" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="closeness_centrality" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="betweenness_centrality" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="load_centrality" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="node_clique_number" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="clustering" typeRef="java.lang.String" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="graphfilter.RootResponseROOTEntryItem" name="RootResponseROOTEntryItem" supportsQuickData="false">
+            <element name="numberOfNodes" typeRef="java.lang.Integer" isList="false" allowNull="false"/>
+            <element name="labeled" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="graph_id" typeRef="java.lang.Integer" isList="false" allowNull="false"/>
+            <element name="weighted" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="numberOfEdges" typeRef="java.lang.Integer" isList="false" allowNull="false"/>
+            <element name="description" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="name" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="directed" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="node_attributes" typeRef="graphfilter.node_attributes" isList="false" allowNull="false"/>
+            <element name="edge_attributes" typeRef="graphfilter.edge_attributes" isList="false" allowNull="false"/>
+            <element name="original_format" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="file_name" typeRef="java.lang.String" isList="false" allowNull="false"/>
+        </dataobject>
+    </dataobjects>
+</service>

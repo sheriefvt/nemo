@@ -1,0 +1,23 @@
+Electric Bicycle 1 arrives at the road segment 1 at 0
+Pedestrian 2 arrives at the road segment 1 at 0
+Electric Bicycle 3 arrives at the road segment 1 at 0
+Regular Bicycle 4 arrives at the road segment 3 at 1
+Regular Bicycle 5 arrives at the road segment 5 at 2
+Electric Bicycle 1 crossed the road segment 1 at 33.97
+Electric Bicycle 1 arrives at the road segment 2 at 33.97
+Electric Bicycle 3 crossed the road segment 1 at 36.16
+Electric Bicycle 3 arrives at the road segment 2 at 36.16
+Regular Bicycle 4 crossed the road segment 3 at 100.34
+Regular Bicycle 4 arrives at the road segment 4 at 100.34
+Electric Bicycle 1 crossed the road segment 2 at 114.45
+Electric Bicycle 1 arrives at the road segment 3 at 114.45
+Regular Bicycle 4 crossed the road segment 4 at 121.55
+Regular Bicycle 4 arrives at the road segment 5 at 121.55
+Electric Bicycle 3 crossed the road segment 2 at 121.97
+Electric Bicycle 1 crossed the road segment 3 at 180.16
+Regular Bicycle 5 crossed the road segment 5 at 267.76
+Regular Bicycle 5 arrives at the road segment 4 at 267.76
+Regular Bicycle 5 crossed the road segment 4 at 287.95
+Regular Bicycle 5 arrives at the road segment 3 at 287.95
+Regular Bicycle 5 crossed the road segment 3 at 375.46
+Regular Bicycle 4 crossed the road segment 5 at 393.78

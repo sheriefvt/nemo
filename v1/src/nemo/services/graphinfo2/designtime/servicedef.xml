@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" id="graphinfo2" CRUDService="false" type="RestService" springFile="graphinfo2.spring.xml">
+    <operation name="invoke">
+        <parameter name="user" typeRef="java.lang.String" isList="false"/>
+        <return typeRef="graphinfo2.RootResponseROOTEntryItem" isList="true"/>
+    </operation>
+    <dataobjects>
+        <dataobject javaType="graphinfo2.node_attributes" name="node_attributes" supportsQuickData="false">
+            <element name="id" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="degree" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="closeness_centrality" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="betweenness_centrality" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="load_centrality" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="node_clique_number" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="clustering" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="name" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="label" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="scientist" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="outdegree" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="indegree" typeRef="java.lang.String" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="graphinfo2.edge_attributes" name="edge_attributes" supportsQuickData="false">
+            <element name="degree_product" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="betweenness_centrality" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="coauthorship" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="coappearances" typeRef="java.lang.String" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="graphinfo2.RootResponse" name="RootResponse" supportsQuickData="false">
+            <element name="RootResponseROOT" typeRef="graphinfo2.RootResponseROOTEntryItem" isList="true" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="graphinfo2.RootResponseROOTEntryItem" name="RootResponseROOTEntryItem" supportsQuickData="false">
+            <element name="numberOfNodes" typeRef="java.lang.Integer" isList="false" allowNull="false"/>
+            <element name="labeled" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="graph_id" typeRef="java.lang.Integer" isList="false" allowNull="false"/>
+            <element name="weighted" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="numberOfEdges" typeRef="java.lang.Integer" isList="false" allowNull="false"/>
+            <element name="description" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="name" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="directed" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="node_attributes" typeRef="graphinfo2.node_attributes" isList="false" allowNull="false"/>
+            <element name="edge_attributes" typeRef="graphinfo2.edge_attributes" isList="false" allowNull="false"/>
+            <element name="original_format" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="file_name" typeRef="java.lang.String" isList="false" allowNull="false"/>
+        </dataobject>
+    </dataobjects>
+</service>

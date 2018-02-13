@@ -1,0 +1,37 @@
+{
+	"methods": [{
+		"operationType": null,
+		"name": "invoke",
+		"parameters": [{
+			"name": "content",
+			"type": "java.lang.String"
+		}, {
+			"name": "graph",
+			"type": "java.lang.String"
+		}, {
+			"name": "memo",
+			"type": "java.lang.String"
+		}, {
+			"name": "details",
+			"type": "java.lang.String"
+		}, {
+			"name": "session",
+			"type": "java.lang.String"
+		}, {
+			"name": "view",
+			"type": "java.lang.String"
+		}, {
+			"name": "nruns",
+			"type": "java.lang.String"
+		}, {
+			"name": "validate",
+			"type": "java.lang.String"
+		}, {
+			"name": "csvf",
+			"type": "java.lang.String"
+		}],
+		"returnType": "graphquery.RootResponse"
+	}],
+	"serviceURL": "graphquery.json",
+	"serviceType": "JSON-RPC"
+}

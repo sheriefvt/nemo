@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" id="graphquery" CRUDService="false" type="RestService" springFile="graphquery.spring.xml">
+    <operation name="invoke">
+        <parameter name="content" typeRef="java.lang.String" isList="false"/>
+        <parameter name="graph" typeRef="java.lang.String" isList="false"/>
+        <parameter name="memo" typeRef="java.lang.String" isList="false"/>
+        <parameter name="details" typeRef="java.lang.String" isList="false"/>
+        <parameter name="session" typeRef="java.lang.String" isList="false"/>
+        <parameter name="view" typeRef="java.lang.String" isList="false"/>
+        <parameter name="nruns" typeRef="java.lang.String" isList="false"/>
+        <parameter name="validate" typeRef="java.lang.String" isList="false"/>
+        <parameter name="csvf" typeRef="java.lang.String" isList="false"/>
+        <return typeRef="graphquery.RootResponse" isList="false"/>
+    </operation>
+    <dataobjects>
+        <dataobject javaType="graphquery.RootResponse" name="RootResponse" supportsQuickData="false">
+            <element name="result" typeRef="graphquery.result" isList="false" allowNull="false"/>
+            <element name="qid" typeRef="java.lang.Integer" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="graphquery.result" name="result" supportsQuickData="false">
+            <element name="node_sets" typeRef="graphquery.node_setsEntryItem" isList="true" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="graphquery.node_setsEntryItem" name="node_setsEntryItem" supportsQuickData="false">
+            <element name="coverage" typeRef="java.lang.Double" isList="false" allowNull="false"/>
+            <element name="nodes" typeRef="graphquery.nodesEntryItem" isList="true" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="graphquery.nodesEntryItem" name="nodesEntryItem" supportsQuickData="false">
+            <element name="id" typeRef="java.lang.Integer" isList="false" allowNull="false"/>
+            <element name="degree" typeRef="java.lang.Integer" isList="false" allowNull="false"/>
+            <element name="closeness_centrality" typeRef="java.lang.Double" isList="false" allowNull="false"/>
+            <element name="betweenness_centrality" typeRef="java.lang.Double" isList="false" allowNull="false"/>
+            <element name="load_centrality" typeRef="java.lang.Double" isList="false" allowNull="false"/>
+            <element name="node_clique_number" typeRef="java.lang.Integer" isList="false" allowNull="false"/>
+            <element name="clustering" typeRef="java.lang.Double" isList="false" allowNull="false"/>
+        </dataobject>
+    </dataobjects>
+</service>

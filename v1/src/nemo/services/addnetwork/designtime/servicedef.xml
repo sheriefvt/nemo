@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" id="addnetwork" CRUDService="false" type="RestService" springFile="addnetwork.spring.xml">
+    <operation name="invoke">
+        <parameter name="name" typeRef="java.lang.String" isList="false"/>
+        <return typeRef="addnetwork.RootResponse" isList="false"/>
+    </operation>
+    <dataobjects>
+        <dataobject javaType="addnetwork.RootResponse" name="RootResponse" supportsQuickData="false">
+            <element name="state" typeRef="java.lang.String" isList="false" allowNull="false"/>
+        </dataobject>
+    </dataobjects>
+</service>

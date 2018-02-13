@@ -1,0 +1,19 @@
+{
+	"methods": [{
+		"operationType": null,
+		"name": "invoke",
+		"parameters": [{
+			"name": "attribute",
+			"type": "java.lang.String"
+		}, {
+			"name": "rvalue",
+			"type": "java.lang.String"
+		}, {
+			"name": "operator",
+			"type": "java.lang.String"
+		}],
+		"returnType": "[graphfilter.RootResponseROOTEntryItem]"
+	}],
+	"serviceURL": "graphfilter.json",
+	"serviceType": "JSON-RPC"
+}
