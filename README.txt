@@ -1,4 +1,4 @@
-This is the code base for the knowledge discovery code that
+This is the code base for the knowledge discovery code named NEMO
 This was done for use with EDISON, but is intended to be more general.
 
 The current name of this code is NEMO.
